@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Lock, X, Shield } from 'lucide-react';
+import React, { useState } from 'react';
+import { Lock, X, Shield, Mail, Key, Loader2 } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface PinAuthModalProps {
   onSuccess: () => void;
   onCancel: () => void;
-  pin?: string;
   title?: string;
   subtitle?: string;
 }
@@ -12,132 +12,141 @@ interface PinAuthModalProps {
 export const PinAuthModal: React.FC<PinAuthModalProps> = ({ 
   onSuccess, 
   onCancel, 
-  pin = '7294',
   title = 'Acceso al Dashboard',
-  subtitle = 'Ingresa el PIN de 4 dígitos para continuar'
+  subtitle = 'Ingresá tu correo y contraseña de administrador'
 }) => {
-  const [enteredPinDigits, setEnteredPinDigits] = useState(['', '', '', '']);
-  const [error, setError] = useState(false);
-  const [isShaking, setIsShaking] = useState(false);
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const correctPin = pin;
-
-  useEffect(() => {
-    // Focus first input on mount
-    inputRefs.current[0]?.focus();
-  }, []);
-
-  const handleInputChange = (index: number, value: string) => {
-    if (value.length > 1) return; // Only allow single digit
-    if (!/^\d*$/.test(value)) return; // Only allow numbers
-
-    const newPin = [...enteredPinDigits];
-    newPin[index] = value;
-    setEnteredPinDigits(newPin);
-    setError(false);
-
-    // Auto-focus next input
-    if (value && index < 3) {
-      inputRefs.current[index + 1]?.focus();
-    }
-
-    // Check if PIN is complete
-    if (newPin.every(digit => digit !== '') && newPin.join('') === correctPin) {
-      onSuccess();
-    } else if (newPin.every(digit => digit !== '')) {
-      // Wrong PIN
-      setError(true);
-      setIsShaking(true);
-      setTimeout(() => {
-        setEnteredPinDigits(['', '', '', '']);
-        setIsShaking(false);
-        inputRefs.current[0]?.focus();
-      }, 500);
-    }
-  };
-
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !enteredPinDigits[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
-    }
-  };
-
-  const handlePaste = (e: React.ClipboardEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text').slice(0, 4);
-    if (!/^\d+$/.test(pastedData)) return;
+    if (!email || !password) {
+      setErrorMsg('Por favor completa todos los campos.');
+      return;
+    }
 
-    const newPin = pastedData.split('').concat(['', '', '', '']).slice(0, 4);
-    setEnteredPinDigits(newPin);
-    
-    if (newPin.join('') === correctPin) {
-      onSuccess();
-    } else if (newPin.every(digit => digit !== '')) {
-      setError(true);
-      setIsShaking(true);
-      setTimeout(() => {
-        setEnteredPinDigits(['', '', '', '']);
-        setIsShaking(false);
-        inputRefs.current[0]?.focus();
-      }, 500);
+    setLoading(true);
+    setErrorMsg(null);
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password: password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data?.user) {
+        onSuccess();
+      }
+    } catch (err: any) {
+      console.error('Error logging in:', err);
+      // Mensajes amigables para el usuario
+      if (err.message?.includes('Invalid login credentials') || err.message?.includes('invalid_credentials')) {
+        setErrorMsg('Correo o contraseña incorrectos.');
+      } else {
+        setErrorMsg(err.message || 'Ocurrió un error al intentar iniciar sesión.');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className={`bg-gray-900 border border-gray-700 rounded-3xl p-8 max-w-sm w-full shadow-2xl transform transition-all duration-300 ${
-        isShaking ? 'animate-pulse' : ''
-      }`}>
-        <div className="text-center mb-8">
-          <div className="bg-purple-500/20 border border-purple-500/30 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-            <Shield className="h-10 w-10 text-purple-400" />
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-gray-900 border border-gray-700 rounded-3xl p-8 max-w-sm w-full shadow-2xl transform transition-all duration-300 relative">
+        <div className="text-center mb-6">
+          <div className="bg-purple-500/20 border border-purple-500/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <Shield className="h-8 w-8 text-purple-400" />
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">
             {title}
           </h3>
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-sm">
             {subtitle}
           </p>
         </div>
 
-        <div className="space-y-6">
-          <div className="flex justify-center space-x-3">
-            {enteredPinDigits.map((digit, index) => (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+              Correo Electrónico
+            </label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                <Mail className="h-4 w-4" />
+              </span>
               <input
-                key={index}
-                ref={(el) => (inputRefs.current[index] = el)}
-                type="text"
-                inputMode="numeric"
-                maxLength={1}
-                value={digit}
-                onChange={(e) => handleInputChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                onPaste={handlePaste}
-                className={`w-14 h-14 text-center text-2xl font-bold bg-gray-800 border-2 rounded-xl text-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 ${
-                  error ? 'border-red-500 bg-red-900/20' : 'border-gray-600'
-                }`}
-                autoComplete="off"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+                placeholder="admin@barberia.com"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
+                required
               />
-            ))}
+            </div>
           </div>
 
-          {error && (
-            <div className="text-center">
+          <div>
+            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+              Contraseña
+            </label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                <Key className="h-4 w-4" />
+              </span>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
+                placeholder="••••••••"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
+                required
+              />
+            </div>
+          </div>
+
+          {errorMsg && (
+            <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-3 text-center animate-shake">
               <p className="text-red-400 text-sm font-medium">
-                PIN incorrecto. Inténtalo de nuevo.
+                {errorMsg}
               </p>
             </div>
           )}
 
-          <div className="flex items-center justify-center space-x-2 text-gray-500">
-            <Lock className="h-4 w-4" />
-            <span className="text-sm">Acceso seguro</span>
-          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-purple-500/25 flex items-center justify-center space-x-2"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                <span>Ingresando...</span>
+              </>
+            ) : (
+              <>
+                <Lock className="h-4 w-4" />
+                <span>Iniciar Sesión</span>
+              </>
+            )}
+          </button>
+        </form>
+
+        <div className="mt-6 flex items-center justify-center space-x-2 text-gray-500 text-xs">
+          <Lock className="h-3.5 w-3.5" />
+          <span>Acceso seguro administrado por Supabase</span>
         </div>
 
         <button
           onClick={onCancel}
+          disabled={loading}
           className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200"
         >
           <X className="h-5 w-5" />

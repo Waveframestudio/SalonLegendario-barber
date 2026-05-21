@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, User } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface HeaderProps {
   view: 'customer' | 'owner';
@@ -7,6 +8,32 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
+  const [showAdminButton, setShowAdminButton] = useState(false);
+
+  useEffect(() => {
+    const isUrlAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
+    if (isUrlAdmin) {
+      setShowAdminButton(true);
+      return;
+    }
+
+    // Check if authenticated
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        setShowAdminButton(true);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      const currentUrlAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
+      setShowAdminButton(!!session || currentUrlAdmin);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
   return (
     <header className="bg-gradient-to-r from-gray-900 via-purple-900 to-blue-900 shadow-2xl border-b border-gray-800 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
@@ -67,24 +94,26 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
             </button>
 
             {/* Botón discreto del Dashboard */}
-            <div className="group relative">
-              <button
-                onClick={() => onViewChange('owner')}
-                className={`w-8 h-8 rounded-full transition-all duration-300 flex items-center justify-center ${
-                  view === 'owner'
-                    ? 'bg-purple-600 text-white shadow-lg'
-                    : 'bg-gray-800/30 hover:bg-gray-700/50 text-gray-500 hover:text-gray-300'
-                }`}
-                title="Panel de Administración"
-              >
-                <User className="h-3 w-3" />
-              </button>
-              
-              {/* Tooltip discreto que aparece en hover */}
-              <div className="absolute right-0 top-full mt-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                Admin
+            {showAdminButton && (
+              <div className="group relative">
+                <button
+                  onClick={() => onViewChange('owner')}
+                  className={`w-8 h-8 rounded-full transition-all duration-300 flex items-center justify-center ${
+                    view === 'owner'
+                      ? 'bg-purple-600 text-white shadow-lg'
+                      : 'bg-gray-800/30 hover:bg-gray-700/50 text-gray-500 hover:text-gray-300'
+                  }`}
+                  title="Panel de Administración"
+                >
+                  <User className="h-3 w-3" />
+                </button>
+                
+                {/* Tooltip discreto que aparece en hover */}
+                <div className="absolute right-0 top-full mt-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                  Admin
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

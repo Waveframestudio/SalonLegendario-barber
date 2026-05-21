@@ -221,6 +221,24 @@ export const useBans = () => {
     try {
       setLoading(true);
       
+      // Verificar sesión antes de consultar tablas restringidas
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        // Si no está autenticado, usar localStorage como fallback y retornar
+        try {
+          const localBans = JSON.parse(localStorage.getItem('banned_ips') || '[]');
+          const localIPs = localBans.map((b: any) => ({
+            id: b.id || Math.random().toString(36).substr(2, 9),
+            ip_address: b.ip_address,
+            reason: b.reason,
+            banned_at: b.banned_at
+          }));
+          setBannedIPs(localIPs);
+        } catch {}
+        setLoading(false);
+        return;
+      }
+      
       // Cargar IPs baneadas desde Supabase
       let supabaseIPs: BannedIP[] = [];
       try {

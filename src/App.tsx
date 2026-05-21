@@ -13,6 +13,7 @@ import { Appointment, Service } from './types';
 import { useSupabaseAppointments } from './hooks/useSupabaseAppointments';
 import { useNotifications } from './hooks/useNotifications';
 import { scheduleReminders } from './utils/webhooks';
+import { supabase } from './lib/supabase';
 import './utils/testWhatsApp'; // Funciones de prueba para WhatsApp
 
 function App() {
@@ -22,6 +23,21 @@ function App() {
   const [navigationStack, setNavigationStack] = useState<('customer' | 'owner')[]>(['customer']);
   const [upcomingAppointment, setUpcomingAppointment] = useState<Appointment | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  // Monitor auth state with Supabase
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsAuthenticated(!!session);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   // Modal states
   const [showCancelModal, setShowCancelModal] = useState(false);
@@ -114,13 +130,13 @@ function App() {
 
       // If going back from owner view, reset authentication
       if (view === 'owner' && previousView === 'customer') {
-        setIsAuthenticated(false);
+        supabase.auth.signOut();
       }
     } else {
       // If no history, go to customer view
       setView('customer');
       setNavigationStack(['customer']);
-      setIsAuthenticated(false);
+      supabase.auth.signOut();
     }
   };
   const handleNewAppointment = async (appointmentData: Omit<Appointment, 'id' | 'createdAt' | 'updatedAt'>) => {

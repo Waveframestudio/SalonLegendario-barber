@@ -24,7 +24,7 @@ const parseNotes = (notes?: string): { companions: string[]; cleanNotes?: string
 }
 
 // Función para convertir de AppointmentRow (Supabase) a Appointment (app)
-const convertToAppointment = (row: AppointmentRow): Appointment => {
+const convertToAppointment = (row: any): Appointment => {
   const parsed = parseNotes(row.notes)
   
   // Asegurar que ipAddress se convierta correctamente (null/undefined -> undefined)
@@ -33,9 +33,9 @@ const convertToAppointment = (row: AppointmentRow): Appointment => {
   
   return {
     id: row.id,
-    customerName: row.customer_name,
-    customerPhone: row.customer_phone,
-    customerEmail: row.customer_email,
+    customerName: row.customer_name || 'Cliente',
+    customerPhone: row.customer_phone || '',
+    customerEmail: row.customer_email || '',
     service: {
       id: '',                         // <-- fix: add default id
       name: row.service_name,
@@ -121,10 +121,16 @@ export const useSupabaseAppointments = () => {
     try {
       setLoading(true)
       
+      // Check auth state to request columns dynamically
+      const { data: { session } } = await supabase.auth.getSession();
+      const selectColumns = session
+        ? '*'
+        : 'id, date, time, status, created_at, deleted_at, service_name, service_duration, service_icon';
+      
       // Primero intentar cargar con el filtro de deleted_at
       let query = supabase
         .from('appointments')
-        .select('*')
+        .select(selectColumns)
         .order('created_at', { ascending: false })
       
       // Intentar filtrar por deleted_at, pero si falla (columna no existe), cargar todos
@@ -137,7 +143,7 @@ export const useSupabaseAppointments = () => {
             console.log('Columna deleted_at no existe, cargando todos los turnos')
             const { data: allData, error: allError } = await supabase
               .from('appointments')
-              .select('*')
+              .select(selectColumns)
               .order('created_at', { ascending: false })
             
             if (allError) throw allError
@@ -166,7 +172,7 @@ export const useSupabaseAppointments = () => {
         console.log('Error con filtro deleted_at, cargando todos los turnos:', filterError)
         const { data: allData, error: allError } = await supabase
           .from('appointments')
-          .select('*')
+          .select(selectColumns)
           .order('created_at', { ascending: false })
         
         if (allError) throw allError
@@ -225,107 +231,24 @@ export const useSupabaseAppointments = () => {
         console.warn('[addAppointment] ⚠️ No se pudo obtener la IP del usuario. El turno se guardará sin IP.');
       }
       
-      // Validar baneos - verificar en Supabase y localStorage
-      let bannedIPs: any[] = [];
-      
-      // Cargar desde Supabase
-      try {
-        const { data: supabaseIPs, error } = await supabase
-          .from('banned_ips')
-          .select('*');
-        
-        if (!error && supabaseIPs) {
-          bannedIPs = [...supabaseIPs];
-          console.log('[addAppointment] IPs baneadas en Supabase:', bannedIPs.length);
-        }
-      } catch (supabaseErr) {
-        console.warn('[addAppointment] Error cargando de Supabase:', supabaseErr);
+      // Validar baneos contra localStorage (chequeo rápido local en el cliente)
+      const userIPTrimmed = userIP?.trim();
+      const localIPs = JSON.parse(localStorage.getItem('banned_ips') || '[]');
+      if (userIPTrimmed && localIPs.some((b: any) => (b.ip_address || '').trim() === userIPTrimmed)) {
+        throw new Error('🚫 Tu IP ha sido bloqueada. No puedes crear turnos.');
       }
-      
-      // Cargar desde localStorage y combinar
-      try {
-        const localIPs = JSON.parse(localStorage.getItem('banned_ips') || '[]');
-        localIPs.forEach((localIP: any) => {
-          if (!bannedIPs.some(b => b.ip_address === localIP.ip_address)) {
-            bannedIPs.push(localIP);
-          }
-        });
-        console.log('[addAppointment] Total IPs baneadas (combinadas):', bannedIPs.length);
-      } catch (localErr) {
-        console.error('[addAppointment] Error cargando localStorage:', localErr);
-      }
-      
-      // Verificar si está baneado - IP
-      if (userIP) {
-        const userIPTrimmed = userIP.trim();
-        console.log('[addAppointment] Verificando si IP está baneada:', userIPTrimmed);
-        console.log('[addAppointment] Lista de IPs baneadas:', bannedIPs.map((b: any) => b.ip_address));
-        
-        const isBanned = bannedIPs.some((b: any) => {
-          const bannedIP = (b.ip_address || '').trim();
-          const matches = bannedIP === userIPTrimmed;
-          if (matches) {
-            console.log('[addAppointment] ¡IP baneada encontrada!', { bannedIP, userIPTrimmed });
-          }
-          return matches;
-        });
-        
-        if (isBanned) {
-          const banInfo = bannedIPs.find((b: any) => (b.ip_address || '').trim() === userIPTrimmed);
-          const reason = banInfo?.reason ? ` Razón: ${banInfo.reason}` : '';
-          console.error('[addAppointment] ❌ IP BANEADA - Bloqueando creación de turno:', userIPTrimmed);
-          throw new Error(`🚫 Tu IP ha sido bloqueada. No puedes crear turnos.${reason}`);
-        }
-        console.log('[addAppointment] ✅ IP no está baneada, continuando con la creación del turno...');
-      } else {
-        console.warn('[addAppointment] No se pudo obtener la IP del usuario');
-      }
-      
-      // Cargar teléfonos y emails baneados
-      const bannedPhones = JSON.parse(localStorage.getItem('banned_phones') || '[]');
-      const bannedEmails = JSON.parse(localStorage.getItem('banned_emails') || '[]');
-      
-      // Intentar cargar también desde Supabase
-      try {
-        const { data: supabasePhones } = await supabase.from('banned_phones').select('*');
-        if (supabasePhones) {
-          supabasePhones.forEach((sp: any) => {
-            if (!bannedPhones.some((bp: any) => bp.phone === sp.phone)) {
-              bannedPhones.push(sp);
-            }
-          });
-        }
-      } catch {}
-      
-      try {
-        const { data: supabaseEmails } = await supabase.from('banned_emails').select('*');
-        if (supabaseEmails) {
-          supabaseEmails.forEach((se: any) => {
-            if (!bannedEmails.some((be: any) => be.email === se.email)) {
-              bannedEmails.push(se);
-            }
-          });
-        }
-      } catch {}
-      
-      // Verificar si está baneado - Teléfono
+
       const normalizedPhone = appointment.customerPhone.replace(/\s|-|\(|\)/g, '');
-      const bannedPhone = bannedPhones.find((b: any) => {
-        const bNormalized = b.phone?.replace(/\s|-|\(|\)/g, '');
-        return bNormalized === normalizedPhone;
-      });
-      if (bannedPhone) {
-        const reason = bannedPhone.reason ? ` Razón: ${bannedPhone.reason}` : '';
-        throw new Error(`🚫 Este teléfono ha sido bloqueado. No puedes crear turnos.${reason}`);
+      const localPhones = JSON.parse(localStorage.getItem('banned_phones') || '[]');
+      if (localPhones.some((b: any) => (b.phone || '').replace(/\s|-|\(|\)/g, '') === normalizedPhone)) {
+        throw new Error('🚫 Este teléfono ha sido bloqueado. No puedes crear turnos.');
       }
-      
-      // Verificar si está baneado - Email
+
       if (appointment.customerEmail) {
         const emailLower = appointment.customerEmail.toLowerCase();
-        const bannedEmail = bannedEmails.find((b: any) => b.email?.toLowerCase() === emailLower);
-        if (bannedEmail) {
-          const reason = bannedEmail.reason ? ` Razón: ${bannedEmail.reason}` : '';
-          throw new Error(`🚫 Este email ha sido bloqueado. No puedes crear turnos.${reason}`);
+        const localEmails = JSON.parse(localStorage.getItem('banned_emails') || '[]');
+        if (localEmails.some((b: any) => (b.email || '').toLowerCase() === emailLower)) {
+          throw new Error('🚫 Este email ha sido bloqueado. No puedes crear turnos.');
         }
       }
       
