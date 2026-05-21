@@ -284,12 +284,12 @@ function App() {
     <div className="min-h-screen bg-gray-900 relative">
       <SEOHead
         title={view === 'customer'
-          ? 'WAVE Barbería Premium - Reserva tu Turno Online | Cortes y Diseños'
-          : 'Panel de Administración - WAVE Barbería Premium'
+          ? 'Salon Legendario - Reserva tu Turno Online | Barbería Premium'
+          : 'Panel de Administración - Salon Legendario'
         }
         description={view === 'customer'
-          ? 'Reserva tu turno en WAVE Barbería Premium. Cortes clásicos, arreglo de barba y diseños personalizados. Sistema de reservas online fácil y rápido. Abierto viernes y sábados.'
-          : 'Panel de administración de WAVE Barbería Premium. Gestiona turnos, reservas y configuraciones.'
+          ? 'Reserva tu turno en Salon Legendario. Cortes clásicos, arreglo de barba y diseños personalizados. Sistema de reservas online fácil y rápido. Abierto viernes y sábados.'
+          : 'Panel de administración de Salon Legendario. Gestiona turnos, reservas y configuraciones.'
         }
       />
 

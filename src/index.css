@@ -25,13 +25,13 @@
     }
   }
   
-  /* Glow Effect */
+  /* Glow Effect - gold */
   @keyframes glow {
     0%, 100% {
-      box-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
     }
     50% {
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.7), 0 0 30px rgba(212, 175, 55, 0.4);
     }
   }
   
@@ -94,7 +94,7 @@
   
   /* Animation Classes */
   .animate-gradient-x {
-    background: linear-gradient(-45deg, #a855f7, #3b82f6, #06b6d4, #a855f7);
+    background: linear-gradient(-45deg, #D4AF37, #F5D060, #B8960C, #D4AF37);
     background-size: 400% 400%;
     animation: gradient-x 4s ease infinite;
     -webkit-background-clip: text;
@@ -103,11 +103,12 @@
   }
   
   .animate-shimmer {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background: linear-gradient(90deg, #D4AF37, #F5E98A, #D4AF37, #F5E98A, #D4AF37);
     background-size: 200% 100%;
     animation: shimmer 3s infinite;
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .animate-glow {

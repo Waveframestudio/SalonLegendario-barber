@@ -9,22 +9,22 @@ interface AppointmentBannerProps {
 
 export const AppointmentBanner: React.FC<AppointmentBannerProps> = ({ appointment, onCancel }) => {
     return (
-        <div className="bg-gradient-to-r from-purple-900/95 to-blue-900/95 border-b border-purple-500/30 backdrop-blur-md shadow-lg sticky top-0 z-50 animate-slide-down">
+        <div className="bg-gradient-to-r from-black via-gray-900 to-black border-b border-amber-500/30 backdrop-blur-md shadow-lg sticky top-0 z-50 animate-slide-down">
             <div className="max-w-4xl mx-auto px-4 py-3">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white">
                     <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
                         <div className="flex items-center gap-2">
-                            <div className="bg-white/10 p-1.5 rounded-full animate-pulse-slow">
-                                <Calendar className="w-4 h-4 text-purple-300" />
+                            <div className="bg-amber-500/20 p-1.5 rounded-full animate-pulse-slow">
+                                <Calendar className="w-4 h-4 text-amber-400" />
                             </div>
-                            <span className="text-sm font-medium text-purple-100">
+                            <span className="text-sm font-medium text-amber-200">
                                 Tu turno:
                             </span>
                         </div>
 
                         <button
                             onClick={onCancel}
-                            className="sm:hidden flex items-center gap-1.5 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-xs font-medium transition-colors border border-white/10"
+                            className="sm:hidden flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 hover:bg-amber-500/20 rounded-full text-xs font-medium transition-colors border border-amber-500/20 text-amber-300"
                         >
                             <RefreshCw className="w-3 h-3" />
                             Cambiar
@@ -37,28 +37,28 @@ export const AppointmentBanner: React.FC<AppointmentBannerProps> = ({ appointmen
                             <span>{appointment.service.name}</span>
                         </div>
 
-                        <div className="h-4 w-px bg-white/20 hidden sm:block" />
+                        <div className="h-4 w-px bg-amber-500/20 hidden sm:block" />
 
                         <div className="flex items-center gap-1.5">
-                            <Calendar className="w-4 h-4 text-blue-300" />
+                            <Calendar className="w-4 h-4 text-amber-400" />
                             <span>{appointment.date}</span>
                         </div>
 
-                        <div className="h-4 w-px bg-white/20 hidden sm:block" />
+                        <div className="h-4 w-px bg-amber-500/20 hidden sm:block" />
 
                         <div className="flex items-center gap-1.5">
-                            <Clock className="w-4 h-4 text-cyan-300" />
+                            <Clock className="w-4 h-4 text-yellow-400" />
                             <span>{appointment.time} hs</span>
                         </div>
                     </div>
 
                     <div className="hidden sm:flex items-center gap-4">
-                        <div className="text-xs text-blue-200/80 italic whitespace-nowrap">
+                        <div className="text-xs text-amber-300/70 italic whitespace-nowrap">
                             ¡Te espero rey!
                         </div>
                         <button
                             onClick={onCancel}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-medium transition-all hover:scale-105 border border-white/10 shadow-sm"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 rounded-lg text-xs font-medium transition-all hover:scale-105 border border-amber-500/20 shadow-sm text-amber-300"
                         >
                             <RefreshCw className="w-3 h-3" />
                             Cambiar turno

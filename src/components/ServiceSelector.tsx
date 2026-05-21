@@ -29,8 +29,8 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
             className={`
               group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-300 transform active:scale-95 sm:hover:scale-105 text-left
               ${selectedService?.id === service.id
-                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
-                : 'bg-gray-800 border-2 border-gray-600 hover:border-purple-400 hover:shadow-md text-gray-200 hover:bg-gray-700'
+                ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/30'
+                : 'bg-gray-900 border-2 border-gray-700 hover:border-amber-500/60 hover:shadow-md hover:shadow-amber-500/10 text-gray-200 hover:bg-gray-800'
               }
             `}
           >
@@ -44,8 +44,8 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
               </div>
               
               {selectedService?.id === service.id && (
-                <div className="bg-white/20 rounded-full p-1 flex-shrink-0">
-                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+                <div className="bg-black/20 rounded-full p-1 flex-shrink-0">
+                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-black" />
                 </div>
               )}
             </div>
@@ -57,9 +57,9 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 ${service.price.toLocaleString()}
               </span>
               <div className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
-                selectedService?.id === service.id 
-                  ? 'bg-white/20 text-white' 
-                  : 'bg-purple-500/20 text-purple-300'
+                selectedService?.id === service.id
+                  ? 'bg-black/20 text-black'
+                  : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
               }`}>
                 {service.duration} min
               </div>

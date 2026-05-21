@@ -471,7 +471,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const d = parseAppointmentDateTime(appointment.date, appointment.time, appointment.createdAt);
       const dayIdx = d ? d.getDay() : 6; // 5=viernes, 6=sábado
       // Mapeo de colores por día: viernes -> azul, sábado -> violeta
-      const theme = isSobreturno ? 'orange' : (dayIdx === 5 ? 'blue' : 'purple');
+      const theme = isSobreturno ? 'orange' : 'amber';
       const now = currentTime;
       const isPast = !!d && d.getTime() < now.getTime();
       
@@ -483,20 +483,14 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const isBanned = appointmentIPBanned || appointmentPhoneBanned || appointmentEmailBanned;
       const borderClass = theme === 'orange'
         ? 'border-l-orange-500'
-        : theme === 'blue'
-          ? (isPast ? 'border-l-blue-700' : 'border-l-blue-500')
-          : (isPast ? 'border-l-purple-700' : 'border-l-purple-500');
+        : (isPast ? 'border-l-amber-600' : 'border-l-amber-500');
       const bgBorderClass = theme === 'orange'
         ? 'bg-orange-500/20 border border-orange-500/30'
-        : theme === 'blue'
-          ? (isPast ? 'bg-blue-700/20 border border-blue-700/40' : 'bg-blue-500/20 border border-blue-500/30')
-          : (isPast ? 'bg-purple-700/20 border border-purple-700/40' : 'bg-purple-500/20 border border-purple-500/30');
+        : (isPast ? 'bg-amber-600/20 border border-amber-600/30' : 'bg-amber-500/20 border border-amber-500/30');
       const dateTextColor = theme === 'orange'
         ? 'text-orange-300'
-        : theme === 'blue'
-          ? (isPast ? 'text-blue-400' : 'text-blue-300')
-          : (isPast ? 'text-purple-400' : 'text-purple-300');
-      const themeChipClass = theme === 'orange' ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' : theme === 'blue' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-purple-500/20 text-purple-300 border border-purple-500/30';
+        : (isPast ? 'text-amber-500' : 'text-amber-400');
+      const themeChipClass = theme === 'orange' ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30';
       return (
     <div key={appointment.id} className={`bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg border-l-4 ${borderClass} hover:shadow-xl transition-all duration-300 relative`}>
       <div className="flex justify-between items-start mb-4">
@@ -583,7 +577,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               type="text"
               value={editForm.customerName}
               onChange={(e) => setEditForm({ ...editForm, customerName: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             />
           </div>
 
@@ -595,7 +589,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               type="tel"
               value={editForm.customerPhone}
               onChange={(e) => setEditForm({ ...editForm, customerPhone: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             />
           </div>
           
@@ -607,7 +601,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               type="email"
               value={editForm.customerEmail}
               onChange={(e) => setEditForm({ ...editForm, customerEmail: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             />
           </div>
           
@@ -632,7 +626,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               value={editForm.additionalNames}
               onChange={(e) => setEditForm({ ...editForm, additionalNames: e.target.value })}
               placeholder="Ej: Juan, Pedro"
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             />
           </div>
 
@@ -647,7 +641,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 const newDay = e.target.value as 'friday' | 'saturday';
                 setEditForm({ ...editForm, day: newDay });
               }}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             >
               <option value="friday">Viernes</option>
               <option value="saturday">Sábado</option>
@@ -709,7 +703,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 <select
                   value={editForm.time}
                   onChange={(e) => setEditForm({ ...editForm, time: e.target.value })}
-                  className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                 >
                   {slotsToShow.map(time => (
                     <option key={time} value={time}>
@@ -804,7 +798,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                     <select
                       value={appointment.status}
                       onChange={(e) => handleStatusChange(appointment.id, e.target.value as Appointment['status'])}
-                      className="text-sm bg-gray-700 border border-gray-600 text-white rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 cursor-pointer hover:bg-gray-600 transition-colors duration-200"
+                      className="text-sm bg-gray-800 border border-gray-700 text-white rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 cursor-pointer hover:bg-gray-700 transition-colors duration-200"
                     >
                       <option value="confirmed">Confirmado</option>
                       <option value="completed">Completado</option>
@@ -819,7 +813,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 <div className="flex space-x-2">
                   <button
                     onClick={() => handleEditStart(appointment)}
-                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 text-blue-400 hover:bg-blue-500/20 border border-blue-500/30 rounded-lg transition-colors duration-200"
+                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 text-amber-400 hover:bg-amber-500/20 border border-amber-500/30 rounded-lg transition-colors duration-200"
                   >
                     <Edit className="h-4 w-4" />
                     <span className="text-sm">Editar</span>
@@ -852,16 +846,16 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pb-safe">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black pb-safe">
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
         
         {/* Dashboard Header */}
         <div className="text-center mb-6 sm:mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent mb-3 sm:mb-4 drop-shadow-lg animate-gradient-x">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent mb-3 sm:mb-4 drop-shadow-lg animate-gradient-x">
             Dashboard del Barbero
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 px-2 animate-fade-in-up">
-            Gestiona tu barbería
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 px-2 animate-fade-in-up">
+            Salon Legendario
           </p>
         </div>
 
@@ -872,8 +866,8 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               onClick={() => setActiveTab('appointments')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'appointments'
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/20'
+                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
               }`}
             >
               <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -883,8 +877,8 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               onClick={() => setActiveTab('analytics')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'analytics'
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/20'
+                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
               }`}
             >
               <BarChart3 className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -894,7 +888,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               onClick={() => setActiveTab('settings')}
               className={`flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'settings'
-                  ? 'bg-purple-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/20'
                   : 'text-gray-300 hover:bg-gray-700 hover:text-white'
               }`}
             >
@@ -966,10 +960,10 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 text-xs sm:text-sm font-medium">Total Reservas</p>
-                <p className="text-2xl sm:text-3xl font-bold text-purple-400">{confirmedAppointments.length}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-amber-400">{confirmedAppointments.length}</p>
               </div>
-              <div className="bg-purple-500/20 border border-purple-500/30 rounded-full p-2 sm:p-3">
-                <Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-purple-400" />
+              <div className="bg-amber-500/20 border border-amber-500/30 rounded-full p-2 sm:p-3">
+                <Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-amber-400" />
               </div>
             </div>
           </div>
@@ -1011,7 +1005,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                     placeholder="Buscar por nombre o teléfono..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-gray-700 border border-gray-600 text-white rounded-lg sm:rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 placeholder-gray-400 text-sm sm:text-base"
+                    className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-gray-900 border border-gray-700 text-white rounded-lg sm:rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200 placeholder-gray-400 text-sm sm:text-base"
                   />
                 </div>
               </div>
@@ -1021,7 +1015,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 <select
                   value={dayFilter}
                   onChange={(e) => setDayFilter(e.target.value as any)}
-                  className="bg-gray-700 border border-gray-600 text-white rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm sm:text-base"
+                  className="bg-gray-900 border border-gray-700 text-white rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-sm sm:text-base"
                 >
                   <option value="all">Todos</option>
                   <option value="friday">Viernes</option>
@@ -1355,7 +1349,7 @@ const SettingsSection: React.FC<{
       {/* Switches para activar/desactivar días */}
       <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6">
         <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center">
-          <Calendar className="h-4 w-4 text-purple-300 mr-2" />
+          <Calendar className="h-4 w-4 text-amber-400 mr-2" />
           Disponibilidad de días
         </h4>
         <p className="text-gray-400 text-sm text-center mb-4">
@@ -1378,7 +1372,7 @@ const SettingsSection: React.FC<{
                 disabled={availabilityLoading}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
             </label>
           </div>
 
@@ -1398,7 +1392,7 @@ const SettingsSection: React.FC<{
                 disabled={availabilityLoading}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
             </label>
           </div>
         </div>
@@ -1409,12 +1403,12 @@ const SettingsSection: React.FC<{
         {/* Columna izquierda (viernes y sábado apilados) */}
         <div className="md:col-span-2 space-y-4">
           <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6">
-          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-purple-300 mr-2" />Añadir horarios adicionales para viernes</h4>
+          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-amber-400 mr-2" />Añadir horarios adicionales para viernes</h4>
           <div className="flex items-center gap-3 mb-3">
             <select
               value={fridayStart}
               onChange={(e) => { setFridayStart(e.target.value); setFridayEnd(''); }}
-              className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             >
               <option value="">Inicio</option>
               {getStartOptions('friday').map(t => (
@@ -1426,7 +1420,7 @@ const SettingsSection: React.FC<{
               value={fridayEnd}
               onChange={(e) => setFridayEnd(e.target.value)}
               disabled={!fridayStart}
-              className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 disabled:opacity-50"
+              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 disabled:opacity-50"
             >
               <option value="">Fin</option>
               {getEndOptions('friday', fridayStart).map(t => (
@@ -1437,19 +1431,19 @@ const SettingsSection: React.FC<{
           <button
             onClick={() => onSaveRange('friday', fridayStart, fridayEnd)}
             disabled={!fridayStart || !fridayEnd}
-            className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+            className="w-full px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold"
           >
             Guardar rango para Viernes
           </button>
           </div>
 
           <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6">
-          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-purple-300 mr-2" />Añadir horarios adicionales para sabado</h4>
+          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-amber-400 mr-2" />Añadir horarios adicionales para sabado</h4>
           <div className="flex items-center gap-3 mb-3">
             <select
               value={saturdayStart}
               onChange={(e) => { setSaturdayStart(e.target.value); setSaturdayEnd(''); }}
-              className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             >
               <option value="">Inicio</option>
               {getStartOptions('saturday').map(t => (
@@ -1461,7 +1455,7 @@ const SettingsSection: React.FC<{
               value={saturdayEnd}
               onChange={(e) => setSaturdayEnd(e.target.value)}
               disabled={!saturdayStart}
-              className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 disabled:opacity-50"
+              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 disabled:opacity-50"
             >
               <option value="">Fin</option>
               {getEndOptions('saturday', saturdayStart).map(t => (
@@ -1472,7 +1466,7 @@ const SettingsSection: React.FC<{
           <button
             onClick={() => onSaveRange('saturday', saturdayStart, saturdayEnd)}
             disabled={!saturdayStart || !saturdayEnd}
-            className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+            className="w-full px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold"
           >
             Guardar rango para Sábado
           </button>
@@ -1481,7 +1475,7 @@ const SettingsSection: React.FC<{
  
         {/* Columna derecha (Rangos actuales) */}
         <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6 md:col-span-1">
-          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Calendar className="h-4 w-4 text-blue-300 mr-2" />Rangos actuales</h4>
+          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Calendar className="h-4 w-4 text-amber-400 mr-2" />Rangos actuales</h4>
           {loading ? (
             <p className="text-gray-400">Cargando...</p>
           ) : (
@@ -1538,13 +1532,13 @@ const SettingsSection: React.FC<{
         <div className="flex items-center justify-between mb-4">
           <div className="flex-1" />
           <h4 className="text-lg font-bold text-white flex items-center justify-center">
-            <Settings className="h-5 w-5 text-purple-400 mr-2" />
+            <Settings className="h-5 w-5 text-amber-400 mr-2" />
             Modificar Servicios
           </h4>
           <div className="flex-1 flex justify-end">
             <button
               onClick={() => setIsAddingService(!isAddingService)}
-              className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-all shadow-lg shadow-purple-900/40 active:scale-95"
+              className="p-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-all shadow-lg shadow-amber-500/30 active:scale-95"
               title="Añadir nuevo servicio"
             >
               <Plus className="h-5 w-5" />
@@ -1557,9 +1551,9 @@ const SettingsSection: React.FC<{
 
         {/* Formulario para añadir servicio */}
         {isAddingService && (
-          <div className="mb-8 bg-gray-900/60 border-2 border-purple-500/30 rounded-2xl p-6 animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="mb-8 bg-gray-900/60 border-2 border-amber-500/30 rounded-2xl p-6 animate-in fade-in slide-in-from-top-4 duration-300">
             <h5 className="text-white font-bold mb-4 flex items-center">
-              <Plus className="h-4 w-4 text-purple-400 mr-2" />
+              <Plus className="h-4 w-4 text-amber-400 mr-2" />
               Nuevo Servicio
             </h5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -1568,35 +1562,35 @@ const SettingsSection: React.FC<{
                 placeholder="Nombre del servicio (ej: Corte + Barba)"
                 value={newServiceForm.name}
                 onChange={(e) => setNewServiceForm({...newServiceForm, name: e.target.value})}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+                className="px-4 py-2 bg-gray-900 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-amber-500 outline-none"
               />
               <input
                 type="text"
                 placeholder="Precio (ej: 12000)"
                 value={newServiceForm.price}
                 onChange={(e) => setNewServiceForm({...newServiceForm, price: e.target.value})}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+                className="px-4 py-2 bg-gray-900 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-amber-500 outline-none"
               />
               <input
                 type="text"
                 placeholder="Icono (ej: 💇‍♂️)"
                 value={newServiceForm.icon}
                 onChange={(e) => setNewServiceForm({...newServiceForm, icon: e.target.value})}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+                className="px-4 py-2 bg-gray-900 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-amber-500 outline-none"
               />
               <input
                 type="text"
                 placeholder="Duración en minutos (ej: 30)"
                 value={newServiceForm.duration}
                 onChange={(e) => setNewServiceForm({...newServiceForm, duration: e.target.value})}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+                className="px-4 py-2 bg-gray-900 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-amber-500 outline-none"
               />
               <div className="md:col-span-2">
                 <textarea
                   placeholder="Descripción del servicio..."
                   value={newServiceForm.description}
                   onChange={(e) => setNewServiceForm({...newServiceForm, description: e.target.value})}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none resize-none"
+                  className="w-full px-4 py-2 bg-gray-900 border border-gray-700 text-white rounded-xl focus:ring-2 focus:ring-amber-500 outline-none resize-none"
                   rows={2}
                 />
               </div>
@@ -1610,7 +1604,7 @@ const SettingsSection: React.FC<{
               </button>
               <button
                 onClick={handleCreateService}
-                className="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-bold transition-all shadow-lg shadow-purple-900/40"
+                className="px-6 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-xl font-bold transition-all shadow-lg shadow-amber-500/20"
               >
                 Crear Servicio
               </button>
@@ -1634,7 +1628,7 @@ const SettingsSection: React.FC<{
                       type="text"
                       value={editingServices[service.id]?.icon || ''}
                       onChange={(e) => handleServiceChange(service.id, 'icon', e.target.value)}
-                      className="w-full h-10 text-center bg-gray-900/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-xl"
+                      className="w-full h-10 text-center bg-gray-900/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 outline-none text-xl"
                     />
                   </div>
                 </div>
@@ -1643,27 +1637,27 @@ const SettingsSection: React.FC<{
                 <div className="lg:col-span-6 space-y-4">
                   <div className="relative group/input">
                     <label className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1.5 ml-1 flex items-center">
-                      <User className="h-3 w-3 mr-1.5 text-purple-500/70" />
+                      <User className="h-3 w-3 mr-1.5 text-amber-500/70" />
                       Nombre del Servicio
                     </label>
                     <input
                       type="text"
                       value={editingServices[service.id]?.name || ''}
                       onChange={(e) => handleServiceChange(service.id, 'name', e.target.value)}
-                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition-all placeholder:text-gray-600 font-medium"
+                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all placeholder:text-gray-600 font-medium"
                       placeholder="Ej: Corte de Pelo"
                     />
                   </div>
                   <div className="relative group/input">
                     <label className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1.5 ml-1 flex items-center">
-                      <MessageSquare className="h-3 w-3 mr-1.5 text-blue-500/70" />
+                      <MessageSquare className="h-3 w-3 mr-1.5 text-amber-500/70" />
                       Descripción Detallada
                     </label>
                     <textarea
                       value={editingServices[service.id]?.description || ''}
                       onChange={(e) => handleServiceChange(service.id, 'description', e.target.value)}
                       rows={2}
-                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 outline-none transition-all placeholder:text-gray-600 text-sm resize-none leading-relaxed"
+                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all placeholder:text-gray-600 text-sm resize-none leading-relaxed"
                       placeholder="Describe qué incluye el servicio..."
                     />
                   </div>
@@ -1690,14 +1684,14 @@ const SettingsSection: React.FC<{
                     </div>
                     <div className="w-full">
                       <label className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1.5 ml-1 flex items-center">
-                        <Clock className="h-3 w-3 mr-1.5 text-blue-500/70" />
+                        <Clock className="h-3 w-3 mr-1.5 text-amber-500/70" />
                         Minutos
                       </label>
                       <input
                         type="text"
                         value={editingServices[service.id]?.duration || ''}
                         onChange={(e) => handleServiceChange(service.id, 'duration', e.target.value)}
-                        className="w-full px-3 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 outline-none transition-all text-center font-black text-base"
+                        className="w-full px-3 py-3 bg-gray-900/50 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all text-center font-black text-base"
                         placeholder="30"
                       />
                     </div>
@@ -1705,7 +1699,7 @@ const SettingsSection: React.FC<{
                   <div className="space-y-3">
                     <button
                       onClick={() => handleSaveService(service.id)}
-                      className="w-full h-[52px] bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl transition-all font-black uppercase tracking-wider text-xs shadow-lg shadow-purple-900/40 hover:shadow-purple-500/20 active:scale-[0.98] flex items-center justify-center gap-2"
+                      className="w-full h-[52px] bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-xl transition-all font-black uppercase tracking-wider text-xs shadow-lg shadow-amber-500/30 hover:shadow-amber-400/20 active:scale-[0.98] flex items-center justify-center gap-2"
                     >
                       <CheckCircle className="h-4 w-4" />
                       Guardar
@@ -1811,7 +1805,7 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
         <select
           value={day}
           onChange={(e) => setDay(e.target.value as any)}
-          className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         >
           <option value="friday">Viernes</option>
           <option value="saturday">Sábado</option>
@@ -1820,7 +1814,7 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
         <select
           value={time}
           onChange={(e) => setTime(e.target.value)}
-          className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         >
           <option value="">Hora (:30)</option>
           {options.map(t => (
@@ -1831,7 +1825,7 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
         <select
           value={serviceId}
           onChange={(e) => setServiceId(e.target.value)}
-          className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         >
           {services.map(s => (
             <option key={s.id} value={s.id}>{s.name}</option>
@@ -1845,14 +1839,14 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
           placeholder="Nombre del cliente"
           value={customerName}
           onChange={(e) => setCustomerName(e.target.value)}
-          className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         />
         <input
           type="tel"
           placeholder="Ej: 11 1234-5678"
           value={customerPhone}
           onChange={(e) => setCustomerPhone(e.target.value)}
-          className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         />
       </div>
 
@@ -1869,7 +1863,7 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
             setAdditionalNames(copy);
           }}
           placeholder={`Acompañante ${idx + 1}`}
-          className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 pr-9"
+          className="w-full px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 pr-9"
         />
         <button
           type="button"
@@ -1889,14 +1883,14 @@ function SobreturnoForm({ appointments, onNewAppointment, ranges, availability }
         type="button"
         onClick={() => { if (additionalNames.length < 2) setAdditionalNames([...additionalNames, '']); }}
         disabled={additionalNames.length >= 2}
-        className={`px-3 py-2 rounded-lg text-sm ${additionalNames.length < 2 ? 'bg-purple-600 text-white hover:bg-purple-700' : 'bg-gray-700 text-gray-400 cursor-not-allowed'}`}
+        className={`px-3 py-2 rounded-lg text-sm ${additionalNames.length < 2 ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black hover:from-amber-500 hover:to-yellow-400' : 'bg-gray-800 text-gray-500 cursor-not-allowed'}`}
       >
         + Agregar acompañante
       </button>
       <button
         onClick={handleCreate}
         disabled={!time || !selectedService || !customerName || !customerPhone || !slotAvailable}
-        className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors disabled:opacity-50"
+        className="px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold disabled:opacity-50"
       >
         Crear Sobreturno
       </button>

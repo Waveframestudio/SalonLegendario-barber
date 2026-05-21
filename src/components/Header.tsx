@@ -17,11 +17,8 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
       return;
     }
 
-    // Check if authenticated
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        setShowAdminButton(true);
-      }
+      if (session) setShowAdminButton(true);
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -29,21 +26,20 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
       setShowAdminButton(!!session || currentUrlAdmin);
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => { subscription.unsubscribe(); };
   }, []);
 
   return (
-    <header className="bg-gradient-to-r from-gray-900 via-purple-900 to-blue-900 shadow-2xl border-b border-gray-800 sticky top-0 z-40">
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+    <header className="bg-gradient-to-r from-black via-gray-900 to-black shadow-2xl border-b border-amber-500/20 sticky top-0 z-40">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-5">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          {/* Logo + Nombre */}
+          <div className="flex items-center space-x-3">
             <a
-              href="https://www.instagram.com/wave.barber_"
+              href="https://www.instagram.com/salonlegendario"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-purple-300 transition-colors duration-300"
+              className="text-amber-400 hover:text-amber-300 transition-colors duration-300"
               aria-label="Síguenos en Instagram"
             >
               <svg viewBox="0 0 24 24" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,55 +57,45 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
                 <circle cx="17.5" cy="6.5" r="1.25" fill="url(#igGradient)" />
               </svg>
             </a>
-            <img 
-              src="/WaveBarberIcon.png" 
-              alt="WAVE Barbería Premium - Logo de la barbería" 
-              className="h-16 w-16 sm:h-18 sm:w-18 object-contain"
-              width="64"
-              height="64"
-              loading="eager"
-            />
-            <div className="text-center">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-lg animate-shimmer">
-                💈𝙒𝘼𝙑𝙀💈
+
+            <div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight drop-shadow-lg animate-shimmer">
+                Salon Legendario
               </h1>
-              <p className="text-purple-200 text-xs sm:text-sm font-medium animate-fade-in ml-1 sm:ml-1">
+              <p className="text-amber-400/80 text-xs sm:text-sm font-medium animate-fade-in">
                 Barbería Premium
               </p>
             </div>
           </div>
 
+          {/* Botones */}
           <div className="flex items-center space-x-3">
-            {/* Botón principal de Reservar */}
             <button
               onClick={() => onViewChange('customer')}
               className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                 view === 'customer'
-                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/25'
-                  : 'bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:bg-gray-700/50 hover:text-white border border-gray-700'
+                  ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/30'
+                  : 'bg-gray-900/80 backdrop-blur-sm text-gray-300 hover:bg-gray-800 hover:text-white border border-gray-700 hover:border-amber-500/40'
               }`}
             >
               <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="text-xs sm:text-sm">Reservar</span>
             </button>
 
-            {/* Botón discreto del Dashboard */}
             {showAdminButton && (
               <div className="group relative">
                 <button
                   onClick={() => onViewChange('owner')}
                   className={`w-8 h-8 rounded-full transition-all duration-300 flex items-center justify-center ${
                     view === 'owner'
-                      ? 'bg-purple-600 text-white shadow-lg'
-                      : 'bg-gray-800/30 hover:bg-gray-700/50 text-gray-500 hover:text-gray-300'
+                      ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                      : 'bg-gray-900/50 hover:bg-gray-800 text-gray-600 hover:text-amber-400 border border-gray-700'
                   }`}
                   title="Panel de Administración"
                 >
                   <User className="h-3 w-3" />
                 </button>
-                
-                {/* Tooltip discreto que aparece en hover */}
-                <div className="absolute right-0 top-full mt-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                <div className="absolute right-0 top-full mt-2 bg-gray-900 border border-amber-500/20 text-amber-400 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                   Admin
                 </div>
               </div>

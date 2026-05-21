@@ -9,11 +9,11 @@ interface SEOHeadProps {
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
-  title = 'WAVE Barbería Premium - Reserva tu Turno Online | Cortes y Diseños',
-  description = 'Reserva tu turno en WAVE Barbería Premium. Cortes clásicos, arreglo de barba y diseños personalizados. Sistema de reservas online fácil y rápido. Abierto viernes y sábados.',
-  keywords = 'barbería, corte de pelo, barba, diseño capilar, reserva online, turno barbería, WAVE barbería, barbería premium, cortes personalizados, arreglo de barba',
+  title = 'Salon Legendario - Reserva tu Turno Online | Barbería Premium',
+  description = 'Reserva tu turno en Salon Legendario. Cortes clásicos, arreglo de barba y diseños personalizados. Sistema de reservas online fácil y rápido. Abierto viernes y sábados en Ricardo Rojas, Tigre.',
+  keywords = 'barbería, corte de pelo, barba, diseño capilar, reserva online, turno barbería, Salon Legendario, barbería premium, cortes personalizados, arreglo de barba',
   ogImage = '/WaveBarberIcon.png',
-  canonicalUrl = 'https://wavebarbershop.com/'
+  canonicalUrl = 'https://salonlegendario.com/'
 }) => {
   useEffect(() => {
     // Actualizar título

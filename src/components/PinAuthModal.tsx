@@ -9,9 +9,9 @@ interface PinAuthModalProps {
   subtitle?: string;
 }
 
-export const PinAuthModal: React.FC<PinAuthModalProps> = ({ 
-  onSuccess, 
-  onCancel, 
+export const PinAuthModal: React.FC<PinAuthModalProps> = ({
+  onSuccess,
+  onCancel,
   title = 'Acceso al Dashboard',
   subtitle = 'Ingresá tu correo y contraseña de administrador'
 }) => {
@@ -22,30 +22,14 @@ export const PinAuthModal: React.FC<PinAuthModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) {
-      setErrorMsg('Por favor completa todos los campos.');
-      return;
-    }
-
+    if (!email || !password) { setErrorMsg('Por favor completa todos los campos.'); return; }
     setLoading(true);
     setErrorMsg(null);
-
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password: password,
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      if (data?.user) {
-        onSuccess();
-      }
+      const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+      if (error) throw error;
+      if (data?.user) onSuccess();
     } catch (err: any) {
-      console.error('Error logging in:', err);
-      // Mensajes amigables para el usuario
       if (err.message?.includes('Invalid login credentials') || err.message?.includes('invalid_credentials')) {
         setErrorMsg('Correo o contraseña incorrectos.');
       } else {
@@ -57,98 +41,81 @@ export const PinAuthModal: React.FC<PinAuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
-      <div className="bg-gray-900 border border-gray-700 rounded-3xl p-8 max-w-sm w-full shadow-2xl transform transition-all duration-300 relative">
+    <div className="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-gray-900 border border-amber-500/20 rounded-3xl p-8 max-w-sm w-full shadow-2xl shadow-amber-500/10 relative">
+        {/* Header */}
         <div className="text-center mb-6">
-          <div className="bg-purple-500/20 border border-purple-500/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse">
-            <Shield className="h-8 w-8 text-purple-400" />
+          <div className="bg-amber-500/20 border border-amber-500/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-glow">
+            <Shield className="h-8 w-8 text-amber-400" />
           </div>
-          <h3 className="text-2xl font-bold text-white mb-2">
-            {title}
-          </h3>
-          <p className="text-gray-400 text-sm">
-            {subtitle}
-          </p>
+          <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+          <p className="text-gray-500 text-sm">{subtitle}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Email */}
           <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
               Correo Electrónico
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-600">
                 <Mail className="h-4 w-4" />
               </span>
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={loading}
-                placeholder="admin@barberia.com"
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
+                type="email" value={email} onChange={e => setEmail(e.target.value)} disabled={loading}
+                placeholder="admin@salonlegendario.com"
+                className="w-full pl-10 pr-4 py-3 bg-black border border-gray-700 rounded-xl text-white placeholder-gray-600 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200"
                 required
               />
             </div>
           </div>
 
+          {/* Password */}
           <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
               Contraseña
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-600">
                 <Key className="h-4 w-4" />
               </span>
               <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={loading}
+                type="password" value={password} onChange={e => setPassword(e.target.value)} disabled={loading}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
+                className="w-full pl-10 pr-4 py-3 bg-black border border-gray-700 rounded-xl text-white placeholder-gray-600 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200"
                 required
               />
             </div>
           </div>
 
+          {/* Error */}
           {errorMsg && (
-            <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-3 text-center animate-shake">
-              <p className="text-red-400 text-sm font-medium">
-                {errorMsg}
-              </p>
+            <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-3 text-center">
+              <p className="text-red-400 text-sm font-medium">{errorMsg}</p>
             </div>
           )}
 
+          {/* Submit */}
           <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-purple-500/25 flex items-center justify-center space-x-2"
+            type="submit" disabled={loading}
+            className="w-full py-3 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black font-bold rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 flex items-center justify-center space-x-2"
           >
             {loading ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Ingresando...</span>
-              </>
+              <><Loader2 className="h-4 w-4 animate-spin" /><span>Ingresando...</span></>
             ) : (
-              <>
-                <Lock className="h-4 w-4" />
-                <span>Iniciar Sesión</span>
-              </>
+              <><Lock className="h-4 w-4" /><span>Iniciar Sesión</span></>
             )}
           </button>
         </form>
 
-        <div className="mt-6 flex items-center justify-center space-x-2 text-gray-500 text-xs">
+        <div className="mt-6 flex items-center justify-center space-x-2 text-gray-600 text-xs">
           <Lock className="h-3.5 w-3.5" />
           <span>Acceso seguro administrado por Supabase</span>
         </div>
 
-        <button
-          onClick={onCancel}
-          disabled={loading}
-          className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200"
-        >
+        <button onClick={onCancel} disabled={loading}
+          className="absolute top-4 right-4 p-2 text-gray-600 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200">
           <X className="h-5 w-5" />
         </button>
       </div>
