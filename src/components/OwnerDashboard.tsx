@@ -855,7 +855,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
             Dashboard del Barbero
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-400 px-2 animate-fade-in-up">
-            Salon Legendario
+            Salón Legendario
           </p>
         </div>
 
@@ -863,6 +863,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-1 flex">
             <button
+              type="button"
               onClick={() => setActiveTab('appointments')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'appointments'
@@ -874,6 +875,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               <span className="text-sm sm:text-base">Turnos</span>
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('analytics')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'analytics'
@@ -885,6 +887,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               <span className="text-sm sm:text-base">Métricas</span>
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('settings')}
               className={`flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'settings'
@@ -895,6 +898,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               <Settings className="h-3 w-3 sm:h-4 sm:w-4" />
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('trash')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'trash'
@@ -905,6 +909,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
               <Trash className="h-3 w-3 sm:h-4 sm:w-4" />
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('bans')}
               className={`flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex-1 ${
                 activeTab === 'bans'
@@ -917,43 +922,44 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           </div>
         </div>
 
-        {activeTab === 'analytics' ? (
-          <Analytics appointments={appointments} />
-        ) : activeTab === 'bans' ? (
-          <BansSection 
-            bannedIPs={bannedIPs}
-            onUnbanIP={unbanIP}
-            onRefresh={async () => {
-              await refreshBans();
-              // También refrescar turnos para actualizar el estado de baneado
-              await onRefreshAppointments();
-            }}
-          />
-        ) : activeTab === 'trash' ? (
-          <TrashSection 
-            deletedAppointments={deletedAppointments}
-            loading={loadingTrash}
-            onRestore={async (id: string) => {
-              try {
-                await onRestoreAppointment(id);
-                const deleted = await loadDeletedAppointments();
-                setDeletedAppointments(deleted);
-              } catch (error) {
-                console.error('Error restoring appointment:', error);
-              }
-            }}
-            onPermanentlyDelete={async (id: string) => {
-              try {
-                await onPermanentlyDeleteAppointment(id);
-                const deleted = await loadDeletedAppointments();
-                setDeletedAppointments(deleted);
-              } catch (error) {
-                console.error('Error permanently deleting appointment:', error);
-              }
-            }}
-          />
-        ) : activeTab === 'appointments' ? (
-          <>
+        <div className="min-h-[50vh]">
+          {activeTab === 'analytics' ? (
+            <Analytics appointments={appointments} />
+          ) : activeTab === 'bans' ? (
+            <BansSection 
+              bannedIPs={bannedIPs}
+              onUnbanIP={unbanIP}
+              onRefresh={async () => {
+                await refreshBans();
+                // También refrescar turnos para actualizar el estado de baneado
+                await onRefreshAppointments();
+              }}
+            />
+          ) : activeTab === 'trash' ? (
+            <TrashSection 
+              deletedAppointments={deletedAppointments}
+              loading={loadingTrash}
+              onRestore={async (id: string) => {
+                try {
+                  await onRestoreAppointment(id);
+                  const deleted = await loadDeletedAppointments();
+                  setDeletedAppointments(deleted);
+                } catch (error) {
+                  console.error('Error restoring appointment:', error);
+                }
+              }}
+              onPermanentlyDelete={async (id: string) => {
+                try {
+                  await onPermanentlyDeleteAppointment(id);
+                  const deleted = await loadDeletedAppointments();
+                  setDeletedAppointments(deleted);
+                } catch (error) {
+                  console.error('Error permanently deleting appointment:', error);
+                }
+              }}
+            />
+          ) : activeTab === 'appointments' ? (
+            <>
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12">
           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">

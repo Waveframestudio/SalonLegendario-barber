@@ -67,7 +67,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 z-50">
       <div className="bg-gray-900 border border-gray-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
-          Confirmar Reserva
+          Confirmar Turno
         </h3>
 
         {/* Summary card */}

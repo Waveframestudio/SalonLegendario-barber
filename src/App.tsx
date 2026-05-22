@@ -13,7 +13,7 @@ import { Appointment, Service } from './types';
 import { useSupabaseAppointments } from './hooks/useSupabaseAppointments';
 import { useNotifications } from './hooks/useNotifications';
 import { scheduleReminders } from './utils/webhooks';
-import { supabase } from './lib/supabase';
+import { supabase } from './utils/supabase';
 import './utils/testWhatsApp'; // Funciones de prueba para WhatsApp
 
 function App() {
@@ -306,10 +306,10 @@ function App() {
       <Header view={view} onViewChange={handleViewChange} />
 
       {/* Back Button - Show when there's navigation history or not on initial customer view */}
-      {(navigationStack.length > 1 || view === 'owner') && (
+      {navigationStack.length > 1 && view === 'customer' && (
         <BackButton
           onClick={handleGoBack}
-          label={view === 'owner' ? 'Volver a Reservas' : 'Volver'}
+          label="Volver"
         />
       )}
 

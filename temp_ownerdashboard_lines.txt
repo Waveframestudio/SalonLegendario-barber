@@ -1,0 +1,216 @@
+ 950:               }}
+ 951:               onPermanentlyDelete={async (id: string) => {
+ 952:                 try {
+ 953:                   await onPermanentlyDeleteAppointment(id);
+ 954:                   const deleted = await loadDeletedAppointments();
+ 955:                   setDeletedAppointments(deleted);
+ 956:                 } catch (error) {
+ 957:                   console.error('Error permanently deleting appointment:', error);
+ 958:                 }
+ 959:               }}
+ 960:             />
+ 961:           ) : activeTab === 'appointments' ? (
+ 962:             <>
+ 963:         {/* Stats Cards */}
+ 964:         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12">
+ 965:           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
+ 966:             <div className="flex items-center justify-between">
+ 967:               <div>
+ 968:                 <p className="text-gray-400 text-xs sm:text-sm font-medium">Total Reservas</p>
+ 969:                 <p className="text-2xl sm:text-3xl font-bold text-amber-400">{confirmedAppointments.length}</p>
+ 970:               </div>
+ 971:               <div className="bg-amber-500/20 border border-amber-500/30 rounded-full p-2 sm:p-3">
+ 972:                 <Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-amber-400" />
+ 973:               </div>
+ 974:             </div>
+ 975:           </div>
+ 976: 
+ 977:           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
+ 978:             <div className="flex items-center justify-between">
+ 979:               <div>
+ 980:                 <p className="text-gray-400 text-xs sm:text-sm font-medium">Turnos Hoy</p>
+ 981:                 <p className="text-2xl sm:text-3xl font-bold text-green-400">{todayAppointments.length}</p>
+ 982:               </div>
+ 983:               <div className="bg-green-500/20 border border-green-500/30 rounded-full p-2 sm:p-3">
+ 984:                 <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-green-400" />
+ 985:               </div>
+ 986:             </div>
+ 987:           </div>
+ 988: 
+ 989:           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg sm:col-span-2 md:col-span-1">
+ 990:             <div className="flex items-center justify-between">
+ 991:               <div>
+ 992:                 <p className="text-gray-400 text-xs sm:text-sm font-medium">Próximos</p>
+ 993:                 <p className="text-2xl sm:text-3xl font-bold text-blue-400">{futureAppointments.length}</p>
+ 994:               </div>
+ 995:               <div className="bg-blue-500/20 border border-blue-500/30 rounded-full p-2 sm:p-3">
+ 996:                 <User className="h-6 w-6 sm:h-8 sm:w-8 text-blue-400" />
+ 997:               </div>
+ 998:             </div>
+ 999:           </div>
+1000:         </div>
+1001: 
+1002:         {/* Filters and Search */}
+1003:         <div className="mb-4 sm:mb-6 md:mb-8">
+1004:           <div className="bg-gray-800 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+1005:             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+1006:               <div className="flex-1">
+1007:                 <div className="relative">
+1008:                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
+1009:                   <input
+1010:                     type="text"
+1011:                     placeholder="Buscar por nombre o teléfono..."
+1012:                     value={searchTerm}
+1013:                     onChange={(e) => setSearchTerm(e.target.value)}
+1014:                     className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-gray-900 border border-gray-700 text-white rounded-lg sm:rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200 placeholder-gray-400 text-sm sm:text-base"
+1015:                   />
+1016:                 </div>
+1017:               </div>
+1018:               
+1019:               <div className="flex items-center space-x-2">
+1020:                 <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+1021:                 <select
+1022:                   value={dayFilter}
+1023:                   onChange={(e) => setDayFilter(e.target.value as any)}
+1024:                   className="bg-gray-900 border border-gray-700 text-white rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-sm sm:text-base"
+1025:                 >
+1026:                   <option value="all">Todos</option>
+1027:                   <option value="friday">Viernes</option>
+1028:                   <option value="saturday">Sábado</option>
+1029:                   <option value="sobreturno">Sobreturnos</option>
+1030:                 </select>
+1031:                 <button
+1032:                   onClick={() => setSortDir(prev => prev === 'asc' ? 'desc' : 'asc')}
+1033:                   className="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg sm:rounded-xl hover:bg-gray-600 transition-colors text-sm sm:text-base"
+1034:                   title="Alternar orden"
+1035:                 >
+1036:                   {sortDir === 'asc' ? 'Próximo → Lejano' : 'Lejano → Próximo'}
+1037:                 </button>
+1038:               </div>
+1039:             </div>
+1040:           </div>
+1041:         </div>
+1042: 
+1043:         {/* Today's Future Appointments */}
+1044:         {todayFutureAppointments.length > 0 && (
+1045:           <div className="mb-6 sm:mb-8 md:mb-12">
+1046:             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center">
+1047:               <Calendar className="h-5 w-5 mr-2" />
+1048:               Turnos Restantes de Hoy ({todayFutureAppointments.length})
+1049:             </h3>
+1050:             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+1051:               {todayFutureAppointments.map((appointment) => (
+1052:                 renderAppointmentCard(appointment, true)
+1053:               ))}
+1054:             </div>
+1055:           </div>
+1056:         )}
+1057: 
+1058:         {/* Upcoming Appointments */}
+1059:         {upcomingAppointments.length > 0 && (
+1060:           <div className="mb-6 sm:mb-8 md:mb-12">
+1061:             <div className="flex items-center justify-between mb-4 sm:mb-6">
+1062:               <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center">
+1063:                 <Calendar className="h-5 w-5 mr-2" />
+1064:                 Próximos Turnos ({upcomingAppointments.length})
+1065:               </h3>
+1066:               <div className="flex items-center space-x-2">
+1067:                 <button
+1068:                   onClick={handleUndo}
+1069:                   disabled={!lastAction}
+1070:                   className={`inline-flex items-center space-x-2 px-3 py-2 rounded-lg text-sm transition-colors ${lastAction ? 'bg-gray-700 text-white hover:bg-gray-600 border border-gray-600' : 'bg-gray-800 text-gray-500 border border-gray-700 cursor-not-allowed'}`}
+1071:                   title={lastAction ? 'Deshacer última acción (Ctrl+Z)' : 'Nada que deshacer'}
+1072:                 >
+1073:                   <RotateCcw className="h-4 w-4" />
+1074:                   <span>Deshacer</span>
+1075:                 </button>
+1076:                 <button
+1077:                   onClick={async () => {
+1078:                     setRefreshing(true);
+1079:                     try {
+1080:                       await Promise.all([
+1081:                         onRefreshAppointments(),
+1082:                         refreshBans()
+1083:                       ]);
+1084:                       addNotification({
+1085:                         type: 'success',
+1086:                         title: 'Actualizado',
+1087:                         message: 'Turnos y baneos actualizados correctamente.'
+1088:                       });
+1089:                     } catch (error) {
+1090:                       console.error('Error refrescando:', error);
+1091:                       addNotification({
+1092:                         type: 'error',
+1093:                         title: 'Error',
+1094:                         message: 'No se pudo actualizar. Intenta nuevamente.'
+1095:                       });
+1096:                     } finally {
+1097:                       setRefreshing(false);
+1098:                     }
+1099:                   }}
+1100:                   disabled={refreshing}
+1101:                   className="inline-flex items-center space-x-2 px-3 py-2 rounded-lg text-sm transition-colors bg-gray-700 text-white hover:bg-gray-600 border border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+1102:                   title="Actualizar turnos y baneos"
+1103:                 >
+1104:                   <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+1105:                   <span>{refreshing ? 'Actualizando...' : 'Actualizar'}</span>
+1106:                 </button>
+1107:               </div>
+1108:             </div>
+1109:             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+1110:               {upcomingAppointments
+1111:                 .slice() // copio array para no mutar upcomingAppointments original
+1112:                 .sort((a, b) => appointmentCompare(a, b, sortDir))
+1113:                 .map((appointment) => (
+1114:                   renderAppointmentCard(appointment, false)
+1115:                 ))}
+1116:             </div>
+1117:           </div>
+1118:         )}
+1119: 
+1120:         {/* All Past Appointments */}
+1121:         {pastAppointments.length > 0 && (
+1122:           <div className="mb-6 sm:mb-8 md:mb-12">
+1123:             <h3 className="text-xl sm:text-2xl font-bold text-gray-400 mb-4 sm:mb-6 flex items-center">
+1124:               <Clock className="h-5 w-5 mr-2" />
+1125:               Turnos Pasados ({pastAppointments.length})
+1126:             </h3>
+1127:             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+1128:               {pastAppointments.map((appointment) => (
+1129:                 <div key={appointment.id} className="opacity-75">
+1130:                   {renderAppointmentCard(appointment, todayAppointments.some(t => t.id === appointment.id))}
+1131:                 </div>
+1132:               ))}
+1133:             </div>
+1134:           </div>
+1135:         )}
+1136: 
+1137:         {/* Empty State */}
+1138:         {pastAppointments.length === 0 && todayFutureAppointments.length === 0 && upcomingAppointments.length === 0 && (
+1139:           <div className="text-center py-8 sm:py-12 md:py-16">
+1140:             <div className="bg-gray-800 border border-gray-700 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-lg max-w-md mx-auto">
+1141:               <div className="bg-gray-700 border border-gray-600 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+1142:                 <Calendar className="h-8 w-8 sm:h-10 sm:w-10 text-gray-500" />
+1143:               </div>
+1144:               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+1145:                 {searchTerm || dayFilter !== 'all' ? 'No se encontraron resultados' : 'No hay reservas aún'}
+1146:               </h3>
+1147:               <p className="text-sm sm:text-base text-gray-400">
+1148:                 {searchTerm || dayFilter !== 'all' ? 'Intenta cambiar los filtros de búsqueda' : 'Las nuevas reservas aparecerán aquí automáticamente'}
+1149:               </p>
+1150:             </div>
+1151:           </div>
+1152:         )}
+1153:         </>
+1154:         ) : (
+1155:           <SettingsSection appointments={appointments} onNewAppointment={onNewAppointment} addNotification={addNotification} />
+1156:         )}
+1157: 
+1158:         {/* Modal de Confirmación de Baneo */}
+1159:         <ConfirmBanModal
+1160:           isOpen={banModalOpen}
+1161:           appointment={appointmentToBan}
+1162:           onConfirm={handleConfirmBan}
+1163:           onCancel={handleCancelBan}
+1164:         />
+1165:       </div>

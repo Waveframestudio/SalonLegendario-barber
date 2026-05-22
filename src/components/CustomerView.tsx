@@ -86,14 +86,14 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
             <div className="bg-gray-900 border border-gray-700 rounded-3xl p-4 sm:p-6 shadow-xl max-w-4xl mx-auto animate-slide-up transition-all duration-300 hover:border-amber-500/60 hover:shadow-amber-500/10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
                 {[
-                  { icon: MapPin, color: 'amber', label: 'Ubicación', sub: 'Ricardo Rojas, Tigre' },
+                  { icon: MapPin, color: 'amber', label: 'Ubicación', sub: 'Arturo Jauretche 1061 - Hurlingham' },
                   { icon: Star, color: 'yellow', label: 'Calidad', sub: '5 estrellas' },
                   { icon: Award, color: 'amber', label: 'Experiencia', sub: '+7 años' },
                   { icon: Shield, color: 'green', label: 'Higiene', sub: 'Sanidad' },
                 ].map(({ icon: Icon, color, label, sub }, i) => (
                   <div key={label} className="flex flex-col items-center space-y-2">
                     <div
-                      className={`bg-${color}-500/20 border border-${color}-500/30 rounded-full p-2 sm:p-3 opacity-0 animate-fade-in-up`}
+                      className={`bg-${color}-500/20 rounded-full p-2 sm:p-3 opacity-0 animate-fade-in-up`}
                       style={{ animationDelay: `${0.2 + i * 0.1}s`, animationFillMode: 'forwards' }}
                     >
                       <Icon className={`h-5 w-5 text-${color}-400`} />

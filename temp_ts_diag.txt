@@ -1,0 +1,1020 @@
+Cannot find global value 'Promise'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+auth-js@2.106.0/node_modules/@supabase/auth-js/dist/module/GoTrueClient.d.ts:57:36: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+auth-js@2.106.0/node_modules/@supabase/auth-js/dist/module/lib/helpers.d.ts:41:32: Cannot find name 'PromiseConstructor'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+phoenix@0.4.2/node_modules/@supabase/phoenix/priv/static/types/longpoll.d.ts:7:11: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+phoenix@0.4.2/node_modules/@supabase/phoenix/priv/static/types/longpoll.d.ts:10:24: Cannot find namespace 'NodeJS'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+postgrest-js@2.106.0/node_modules/@supabase/postgrest-js/dist/index.d.cts:626:111: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+postgrest-js@2.106.0/node_modules/@supabase/postgrest-js/dist/index.d.cts:626:126: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:775:13: 'Symbol' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:789:13: 'Symbol' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:801:56: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:801:83: Cannot find namespace 'NodeJS'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:1031:73: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@supabase+storage-js@2.106.0/node_modules/@supabase/storage-js/dist/index.d.cts:1031:100: Cannot find namespace 'NodeJS'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@types+prop-types@15.7.15/node_modules/@types/prop-types/index.d.ts:16:38: Cannot find name 'Iterable'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:448:26: Cannot find name 'Iterable'.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:486:10: Type alias 'ReactNode' circularly references itself.
+C:/Code/SalonLegendario-barber/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:490:11: Cannot find name 'Iterable'.
+src/components/OwnerDashboard.tsx:1:8: Module '"C:/Code/SalonLegendario-barber/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/components/OwnerDashboard.tsx:10:27: Module './Analytics' was resolved to 'C:/Code/SalonLegendario-barber/src/components/Analytics.tsx', but '--jsx' is not set.
+src/components/OwnerDashboard.tsx:11:33: Module './ConfirmBanModal' was resolved to 'C:/Code/SalonLegendario-barber/src/components/ConfirmBanModal.tsx', but '--jsx' is not set.
+src/components/OwnerDashboard.tsx:107:25: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:294:28: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:401:38: A dynamic import call in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:470:45: Property 'endsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:495:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:496:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:497:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:498:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:499:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:501:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:502:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:505:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:506:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:507:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:508:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:512:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:513:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:515:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:527:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:531:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:532:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:541:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:545:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:546:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:561:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:562:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:571:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:572:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:573:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:576:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:584:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:585:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:588:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:596:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:597:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:600:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:608:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:609:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:612:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:620:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:621:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:624:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:634:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:635:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:638:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:646:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:647:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:652:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:653:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:661:45: Property 'find' does not exist on type 'AvailableDay[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:676:49: Property 'padStart' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2017' or later.
+src/components/OwnerDashboard.tsx:679:46: Property 'from' does not exist on type 'ArrayConstructor'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:679:55: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:688:41: Property 'from' does not exist on type 'ArrayConstructor'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:688:50: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:696:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:703:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:709:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:718:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:719:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:723:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:724:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:726:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:730:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:731:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:736:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:737:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:738:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:739:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:740:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:741:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:742:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:747:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:748:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:749:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:750:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:752:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:757:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:758:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:759:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:760:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:767:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:768:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:774:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:775:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:776:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:777:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:783:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:784:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:785:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:786:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:792:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:793:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:794:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:796:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:797:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:798:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:803:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:804:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:805:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:806:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:812:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:813:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:814:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:818:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:819:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:821:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:825:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:826:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:833:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:834:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:837:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:838:25: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+src/components/OwnerDashboard.tsx:849:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:849:6: JSX element 'div' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:850:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:853:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:854:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:857:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:863:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:864:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:865:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:874:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:875:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:877:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:886:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:887:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:889:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:898:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:900:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:909:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:911:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:920:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:925:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:927:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:929:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:929:14: Cannot find name 'BansSection'.
+src/components/OwnerDashboard.tsx:932:26: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:939:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:939:14: Cannot find name 'TrashSection'.
+src/components/OwnerDashboard.tsx:942:26: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:951:36: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:962:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:964:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:965:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:966:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:967:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:968:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:969:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:971:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:972:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:977:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:978:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:979:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:980:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:981:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:983:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:984:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:989:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:990:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:991:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:992:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:993:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:995:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:996:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1003:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1004:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1005:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1006:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1007:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1008:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1009:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1019:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1020:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1021:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1026:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1027:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1028:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1029:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1031:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1045:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1046:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1047:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1050:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1060:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1061:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1062:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1063:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1066:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1067:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1073:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1074:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1076:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1077:28: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/components/OwnerDashboard.tsx:1080:29: 'Promise' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+src/components/OwnerDashboard.tsx:1104:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1105:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1109:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1122:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1123:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1124:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1127:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1129:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1139:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1140:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1141:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1142:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1144:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1147:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1155:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1155:12: Cannot find name 'SettingsSection'.
+src/components/OwnerDashboard.tsx:1159:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1168:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1170:32: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1170:33: Identifier expected.
+src/components/OwnerDashboard.tsx:1171:3: '...' expected.
+src/components/OwnerDashboard.tsx:1171:15: '}' expected.
+src/components/OwnerDashboard.tsx:1172:39: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1172:40: 'Appointment' only refers to a type, but is being used as a value here.
+src/components/OwnerDashboard.tsx:1172:51: Identifier expected.
+src/components/OwnerDashboard.tsx:1172:85: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1172:89: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1173:38: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:1173:42: '}' expected.
+src/components/OwnerDashboard.tsx:1173:136: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1173:140: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1174:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1174:2: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1174:9: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1174:9: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1174:56: '}' expected.
+src/components/OwnerDashboard.tsx:1174:78: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1174:82: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1175:3: Expression expected.
+src/components/OwnerDashboard.tsx:1179:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1179:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1179:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1179:19: Cannot find name 'addRange'.
+src/components/OwnerDashboard.tsx:1179:29: Cannot find name 'deleteRange'.
+src/components/OwnerDashboard.tsx:1179:42: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1180:26: '}' expected.
+src/components/OwnerDashboard.tsx:1180:49: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1182:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1182:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1182:25: Cannot find name 'updateDayAvailability'.
+src/components/OwnerDashboard.tsx:1182:48: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1182:55: '}' expected.
+src/components/OwnerDashboard.tsx:1182:77: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1183:11: Cannot find name 'services'.
+src/components/OwnerDashboard.tsx:1183:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1183:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1183:11: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1183:21: Cannot find name 'updateService'.
+src/components/OwnerDashboard.tsx:1183:36: Cannot find name 'createService'.
+src/components/OwnerDashboard.tsx:1183:51: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1183:58: '}' expected.
+src/components/OwnerDashboard.tsx:1183:76: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1184:57: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1184:58: 'Record' only refers to a type, but is being used as a value here.
+src/components/OwnerDashboard.tsx:1184:58: JSX element 'Record' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:1186:62: '}' expected.
+src/components/OwnerDashboard.tsx:1186:123: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1189:17: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1190:5: Expression expected.
+src/components/OwnerDashboard.tsx:1190:30: Property 'string' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1190:30: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1190:37: Identifier expected.
+src/components/OwnerDashboard.tsx:1190:45: '}' expected.
+src/components/OwnerDashboard.tsx:1190:141: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1190:142: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1191:31: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1192:7: Cannot find name 'initialData'.
+src/components/OwnerDashboard.tsx:1192:19: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1193:15: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1194:22: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1195:16: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1196:19: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1197:15: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1198:19: Cannot find name 'service'.
+src/components/OwnerDashboard.tsx:1199:8: '}' expected.
+src/components/OwnerDashboard.tsx:1200:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1202:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1204:153: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1205:5: Cannot find name 'setEditingServices'.
+src/components/OwnerDashboard.tsx:1206:28: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1207:11: Cannot find name 'field'.
+src/components/OwnerDashboard.tsx:1208:33: Cannot find name 'value'.
+src/components/OwnerDashboard.tsx:1209:28: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1211:11: Cannot find name 'field'.
+src/components/OwnerDashboard.tsx:1212:36: Cannot find name 'value'.
+src/components/OwnerDashboard.tsx:1213:28: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1215:11: Cannot find name 'field'.
+src/components/OwnerDashboard.tsx:1216:26: Cannot find name 'value'.
+src/components/OwnerDashboard.tsx:1216:44: Cannot find name 'value'.
+src/components/OwnerDashboard.tsx:1217:28: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1219:26: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1219:53: Cannot find name 'field'.
+src/components/OwnerDashboard.tsx:1219:61: Cannot find name 'value'.
+src/components/OwnerDashboard.tsx:1220:7: '}' expected.
+src/components/OwnerDashboard.tsx:1221:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1223:56: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1224:5: Expression expected.
+src/components/OwnerDashboard.tsx:1225:34: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1226:7: Expression expected.
+src/components/OwnerDashboard.tsx:1227:15: Cannot find name 'updateService'.
+src/components/OwnerDashboard.tsx:1227:29: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1227:40: Cannot find name 'updates'.
+src/components/OwnerDashboard.tsx:1227:48: '}' expected.
+src/components/OwnerDashboard.tsx:1229:11: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:1229:15: '}' expected.
+src/components/OwnerDashboard.tsx:1231:36: Cannot find name 'updates'.
+src/components/OwnerDashboard.tsx:1232:9: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1233:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1238:11: '}' expected.
+src/components/OwnerDashboard.tsx:1239:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1240:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1245:9: '}' expected.
+src/components/OwnerDashboard.tsx:1246:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1247:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1249:41: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1250:5: Expression expected.
+src/components/OwnerDashboard.tsx:1251:102: '}' expected.
+src/components/OwnerDashboard.tsx:1253:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1255:13: Cannot find name 'createService'.
+src/components/OwnerDashboard.tsx:1256:15: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1257:22: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1258:25: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1259:15: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1260:28: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1262:9: '}' expected.
+src/components/OwnerDashboard.tsx:1263:25: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:1263:29: '}' expected.
+src/components/OwnerDashboard.tsx:1263:101: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1265:31: '}' expected.
+src/components/OwnerDashboard.tsx:1265:92: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1266:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1267:98: '}' expected.
+src/components/OwnerDashboard.tsx:1268:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1269:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1271:37: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1275:34: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1276:5: Expression expected.
+src/components/OwnerDashboard.tsx:1278:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1280:33: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1281:5: Expression expected.
+src/components/OwnerDashboard.tsx:1282:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1282:25: Identifier expected.
+src/components/OwnerDashboard.tsx:1283:7: Expression expected.
+src/components/OwnerDashboard.tsx:1284:21: Cannot find name 'hh'.
+src/components/OwnerDashboard.tsx:1285:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1287:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1289:56: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1290:5: Expression expected.
+src/components/OwnerDashboard.tsx:1291:39: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1292:50: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1293:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1295:57: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1296:5: Expression expected.
+src/components/OwnerDashboard.tsx:1297:39: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1298:7: Expression expected.
+src/components/OwnerDashboard.tsx:1303:16: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1303:33: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1303:34: Identifier expected.
+src/components/OwnerDashboard.tsx:1304:16: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1304:33: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1304:34: Identifier expected.
+src/components/OwnerDashboard.tsx:1305:33: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1307:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1308:42: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1309:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1311:71: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1312:5: Expression expected.
+src/components/OwnerDashboard.tsx:1315:18: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1315:33: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1316:18: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1317:9: Expression expected.
+src/components/OwnerDashboard.tsx:1318:38: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1319:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1320:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1322:87: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1323:5: Expression expected.
+src/components/OwnerDashboard.tsx:1324:13: Cannot find name 'addRange'.
+src/components/OwnerDashboard.tsx:1324:22: Cannot find name 'day'.
+src/components/OwnerDashboard.tsx:1324:27: Cannot find name 'start'.
+src/components/OwnerDashboard.tsx:1324:34: Cannot find name 'end'.
+src/components/OwnerDashboard.tsx:1324:38: '}' expected.
+src/components/OwnerDashboard.tsx:1325:25: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:1325:29: '}' expected.
+src/components/OwnerDashboard.tsx:1325:101: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1326:31: Cannot find name 'setFridayStart'.
+src/components/OwnerDashboard.tsx:1326:49: '}' expected.
+src/components/OwnerDashboard.tsx:1326:69: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1327:33: Cannot find name 'setSaturdayStart'.
+src/components/OwnerDashboard.tsx:1327:53: '}' expected.
+src/components/OwnerDashboard.tsx:1327:75: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1328:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1329:65: Cannot find name 'e'.
+src/components/OwnerDashboard.tsx:1329:86: Cannot find name 'e'.
+src/components/OwnerDashboard.tsx:1329:121: '}' expected.
+src/components/OwnerDashboard.tsx:1330:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1331:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1333:81: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1334:5: Expression expected.
+src/components/OwnerDashboard.tsx:1335:13: Cannot find name 'updateDayAvailability'.
+src/components/OwnerDashboard.tsx:1335:35: Cannot find name 'day'.
+src/components/OwnerDashboard.tsx:1335:40: Cannot find name 'enabled'.
+src/components/OwnerDashboard.tsx:1335:48: '}' expected.
+src/components/OwnerDashboard.tsx:1337:9: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:1337:13: '}' expected.
+src/components/OwnerDashboard.tsx:1339:21: Cannot find name 'day'.
+src/components/OwnerDashboard.tsx:1339:64: Cannot find name 'enabled'.
+src/components/OwnerDashboard.tsx:1340:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1341:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1345:18: Cannot find name 'e'.
+src/components/OwnerDashboard.tsx:1345:39: Cannot find name 'e'.
+src/components/OwnerDashboard.tsx:1346:9: '}' expected.
+src/components/OwnerDashboard.tsx:1347:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1348:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1351:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1352:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1353:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1356:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1357:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1358:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1361:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1364:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1366:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1367:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1368:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1369:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1373:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1374:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1377:34: Cannot find name 'handleToggleDay'.
+src/components/OwnerDashboard.tsx:1378:27: Cannot find name 'availabilityLoading'.
+src/components/OwnerDashboard.tsx:1381:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1386:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1387:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1388:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1389:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1393:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1394:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1397:34: Cannot find name 'handleToggleDay'.
+src/components/OwnerDashboard.tsx:1398:27: Cannot find name 'availabilityLoading'.
+src/components/OwnerDashboard.tsx:1401:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1408:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1410:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1411:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1412:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1412:98: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1413:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1414:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1415:22: Cannot find name 'fridayStart'.
+src/components/OwnerDashboard.tsx:1416:34: Cannot find name 'setFridayStart'.
+src/components/OwnerDashboard.tsx:1416:66: Cannot find name 'setFridayEnd'.
+src/components/OwnerDashboard.tsx:1419:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1420:16: Cannot find name 'getStartOptions'.
+src/components/OwnerDashboard.tsx:1421:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1424:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1425:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1426:22: Cannot find name 'fridayEnd'.
+src/components/OwnerDashboard.tsx:1427:32: Cannot find name 'setFridayEnd'.
+src/components/OwnerDashboard.tsx:1428:26: Cannot find name 'fridayStart'.
+src/components/OwnerDashboard.tsx:1431:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1432:16: Cannot find name 'getEndOptions'.
+src/components/OwnerDashboard.tsx:1432:40: Cannot find name 'fridayStart'.
+src/components/OwnerDashboard.tsx:1433:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1437:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1438:28: Cannot find name 'onSaveRange'.
+src/components/OwnerDashboard.tsx:1438:50: Cannot find name 'fridayStart'.
+src/components/OwnerDashboard.tsx:1438:63: Cannot find name 'fridayEnd'.
+src/components/OwnerDashboard.tsx:1439:24: Cannot find name 'fridayStart'.
+src/components/OwnerDashboard.tsx:1439:40: Cannot find name 'fridayEnd'.
+src/components/OwnerDashboard.tsx:1446:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1447:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1447:98: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1448:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1449:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1450:22: Cannot find name 'saturdayStart'.
+src/components/OwnerDashboard.tsx:1451:34: Cannot find name 'setSaturdayStart'.
+src/components/OwnerDashboard.tsx:1451:68: Cannot find name 'setSaturdayEnd'.
+src/components/OwnerDashboard.tsx:1454:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1455:16: Cannot find name 'getStartOptions'.
+src/components/OwnerDashboard.tsx:1456:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1459:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1460:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1461:22: Cannot find name 'saturdayEnd'.
+src/components/OwnerDashboard.tsx:1462:32: Cannot find name 'setSaturdayEnd'.
+src/components/OwnerDashboard.tsx:1463:26: Cannot find name 'saturdayStart'.
+src/components/OwnerDashboard.tsx:1466:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1467:16: Cannot find name 'getEndOptions'.
+src/components/OwnerDashboard.tsx:1467:42: Cannot find name 'saturdayStart'.
+src/components/OwnerDashboard.tsx:1468:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1472:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1473:28: Cannot find name 'onSaveRange'.
+src/components/OwnerDashboard.tsx:1473:52: Cannot find name 'saturdayStart'.
+src/components/OwnerDashboard.tsx:1473:67: Cannot find name 'saturdayEnd'.
+src/components/OwnerDashboard.tsx:1474:24: Cannot find name 'saturdayStart'.
+src/components/OwnerDashboard.tsx:1474:42: Cannot find name 'saturdayEnd'.
+src/components/OwnerDashboard.tsx:1483:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1484:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1484:98: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1485:12: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1486:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1488:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1489:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1490:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1490:69: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1490:110: Cannot find name 'fridayDateLabel'.
+src/components/OwnerDashboard.tsx:1491:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1492:50: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1494:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1495:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1496:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1497:40: Cannot find name 'deleteRange'.
+src/components/OwnerDashboard.tsx:1504:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1505:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1505:68: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1505:109: Cannot find name 'saturdayDateLabel'.
+src/components/OwnerDashboard.tsx:1506:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1507:52: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1509:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1510:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1511:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1512:40: Cannot find name 'deleteRange'.
+src/components/OwnerDashboard.tsx:1525:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1526:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1526:96: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1527:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1527:10: Cannot find name 'SobreturnoForm'.
+src/components/OwnerDashboard.tsx:1533:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1537:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1538:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1539:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1540:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1541:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1544:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1545:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1546:30: Cannot find name 'setIsAddingService'.
+src/components/OwnerDashboard.tsx:1546:50: Cannot find name 'isAddingService'.
+src/components/OwnerDashboard.tsx:1550:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1554:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1559:10: Cannot find name 'isAddingService'.
+src/components/OwnerDashboard.tsx:1560:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1561:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1562:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1565:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1566:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1569:24: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1570:34: Cannot find name 'setNewServiceForm'.
+src/components/OwnerDashboard.tsx:1570:56: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1573:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1576:24: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1577:34: Cannot find name 'setNewServiceForm'.
+src/components/OwnerDashboard.tsx:1577:56: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1580:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1583:24: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1584:34: Cannot find name 'setNewServiceForm'.
+src/components/OwnerDashboard.tsx:1584:56: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1587:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1590:24: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1591:34: Cannot find name 'setNewServiceForm'.
+src/components/OwnerDashboard.tsx:1591:56: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1594:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1595:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1597:26: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1598:36: Cannot find name 'setNewServiceForm'.
+src/components/OwnerDashboard.tsx:1598:58: Cannot find name 'newServiceForm'.
+src/components/OwnerDashboard.tsx:1604:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1605:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1606:32: Cannot find name 'setIsAddingService'.
+src/components/OwnerDashboard.tsx:1611:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1612:26: Cannot find name 'handleCreateService'.
+src/components/OwnerDashboard.tsx:1620:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1621:12: Cannot find name 'services'.
+src/components/OwnerDashboard.tsx:1622:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1623:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1625:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1626:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1627:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1628:24: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1631:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1632:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1633:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1635:30: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1636:40: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1643:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1644:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1645:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1646:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1649:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1651:30: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1652:40: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1657:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1658:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1659:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1662:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1663:30: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1664:40: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1673:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1674:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1675:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1676:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1677:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1680:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1681:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1682:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1684:34: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1685:44: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1691:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1692:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1693:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1696:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1698:32: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1699:42: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1705:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1706:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1707:38: Cannot find name 'handleSaveService'.
+src/components/OwnerDashboard.tsx:1710:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1715:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1716:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1716:92: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1717:26: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1719:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1720:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1722:36: Cannot find name 'editingServices'.
+src/components/OwnerDashboard.tsx:1723:44: Cannot find name 'handleServiceChange'.
+src/components/OwnerDashboard.tsx:1726:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1738:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1741:15: '}' expected.
+src/components/OwnerDashboard.tsx:1742:39: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1742:40: 'Appointment' only refers to a type, but is being used as a value here.
+src/components/OwnerDashboard.tsx:1742:51: Identifier expected.
+src/components/OwnerDashboard.tsx:1742:85: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1742:89: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1744:19: Cannot find name 'friday'.
+src/components/OwnerDashboard.tsx:1744:25: '}' expected.
+src/components/OwnerDashboard.tsx:1744:54: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1745:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1746:27: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1746:27: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1746:27: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1747:3: Expression expected.
+src/components/OwnerDashboard.tsx:1747:33: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1747:34: Identifier expected.
+src/components/OwnerDashboard.tsx:1747:55: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1748:11: Cannot find name 'services'.
+src/components/OwnerDashboard.tsx:1753:57: Property 'string' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1753:57: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1753:64: Identifier expected.
+src/components/OwnerDashboard.tsx:1753:66: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1754:65: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1757:17: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1758:5: Expression expected.
+src/components/OwnerDashboard.tsx:1758:25: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1758:65: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1759:7: Cannot find name 'setServiceId'.
+src/components/OwnerDashboard.tsx:1759:20: Cannot find name 'services'.
+src/components/OwnerDashboard.tsx:1759:35: '}' expected.
+src/components/OwnerDashboard.tsx:1760:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1761:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1763:30: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1764:5: Expression expected.
+src/components/OwnerDashboard.tsx:1765:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1765:25: Identifier expected.
+src/components/OwnerDashboard.tsx:1766:7: Expression expected.
+src/components/OwnerDashboard.tsx:1767:21: Cannot find name 'hh'.
+src/components/OwnerDashboard.tsx:1768:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1770:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1772:34: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1773:5: Expression expected.
+src/components/OwnerDashboard.tsx:1775:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1780:27: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1780:58: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1783:16: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1784:7: Expression expected.
+src/components/OwnerDashboard.tsx:1785:19: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1785:44: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1785:45: Identifier expected.
+src/components/OwnerDashboard.tsx:1786:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1787:16: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1790:34: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1791:5: Expression expected.
+src/components/OwnerDashboard.tsx:1794:7: Cannot find name 'date'.
+src/components/OwnerDashboard.tsx:1794:11: '}' expected.
+src/components/OwnerDashboard.tsx:1801:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1806:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1809:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1810:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1811:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1812:18: Cannot find name 'day'.
+src/components/OwnerDashboard.tsx:1813:28: Cannot find name 'setDay'.
+src/components/OwnerDashboard.tsx:1816:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1817:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1820:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1821:18: Cannot find name 'time'.
+src/components/OwnerDashboard.tsx:1822:28: Cannot find name 'setTime'.
+src/components/OwnerDashboard.tsx:1825:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1826:12: Cannot find name 'options'.
+src/components/OwnerDashboard.tsx:1827:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1831:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1832:18: Cannot find name 'serviceId'.
+src/components/OwnerDashboard.tsx:1833:28: Cannot find name 'setServiceId'.
+src/components/OwnerDashboard.tsx:1836:12: Cannot find name 'services'.
+src/components/OwnerDashboard.tsx:1837:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1842:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1843:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1846:18: Cannot find name 'customerName'.
+src/components/OwnerDashboard.tsx:1847:28: Cannot find name 'setCustomerName'.
+src/components/OwnerDashboard.tsx:1850:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1853:18: Cannot find name 'customerPhone'.
+src/components/OwnerDashboard.tsx:1854:28: Cannot find name 'setCustomerPhone'.
+src/components/OwnerDashboard.tsx:1860:3: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1861:6: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1862:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1863:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1867:30: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1869:13: Cannot find name 'setAdditionalNames'.
+src/components/OwnerDashboard.tsx:1874:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1877:30: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1879:13: Cannot find name 'setAdditionalNames'.
+src/components/OwnerDashboard.tsx:1887:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1888:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1890:30: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1890:58: Cannot find name 'setAdditionalNames'.
+src/components/OwnerDashboard.tsx:1890:81: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1891:19: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1892:52: Cannot find name 'additionalNames'.
+src/components/OwnerDashboard.tsx:1896:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1897:18: Cannot find name 'handleCreate'.
+src/components/OwnerDashboard.tsx:1898:20: Cannot find name 'time'.
+src/components/OwnerDashboard.tsx:1898:29: Cannot find name 'selectedService'.
+src/components/OwnerDashboard.tsx:1898:49: Cannot find name 'customerName'.
+src/components/OwnerDashboard.tsx:1898:66: Cannot find name 'customerPhone'.
+src/components/OwnerDashboard.tsx:1898:84: Cannot find name 'slotAvailable'.
+src/components/OwnerDashboard.tsx:1906:9: Cannot find name 'slotAvailable'.
+src/components/OwnerDashboard.tsx:1906:26: Cannot find name 'time'.
+src/components/OwnerDashboard.tsx:1907:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1911:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1915:22: '}' expected.
+src/components/OwnerDashboard.tsx:1917:28: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1917:37: Property 'void' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1917:37: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1917:38: JSX element 'void' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:1918:38: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1918:47: Property 'void' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1918:47: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1918:48: JSX element 'void' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:1919:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1921:29: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1921:30: Cannot find name 'TrashSectionProps'.
+src/components/OwnerDashboard.tsx:1921:30: JSX element 'TrashSectionProps' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:1922:3: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1922:3: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1922:3: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:1923:3: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1924:3: Cannot find name 'onRestore'.
+src/components/OwnerDashboard.tsx:1925:3: Cannot find name 'onPermanentlyDelete'.
+src/components/OwnerDashboard.tsx:1926:5: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1927:3: Expression expected.
+src/components/OwnerDashboard.tsx:1927:49: Property 'string' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1927:49: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1927:57: Identifier expected.
+src/components/OwnerDashboard.tsx:1927:63: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1928:47: Property 'string' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:1928:47: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1928:55: Identifier expected.
+src/components/OwnerDashboard.tsx:1928:61: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1930:45: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1931:5: Cannot find name 'setRestoringId'.
+src/components/OwnerDashboard.tsx:1931:20: Cannot find name 'id'.
+src/components/OwnerDashboard.tsx:1931:23: '}' expected.
+src/components/OwnerDashboard.tsx:1933:13: Cannot find name 'onRestore'.
+src/components/OwnerDashboard.tsx:1933:23: Cannot find name 'id'.
+src/components/OwnerDashboard.tsx:1933:26: '}' expected.
+src/components/OwnerDashboard.tsx:1934:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1935:7: Cannot find name 'setRestoringId'.
+src/components/OwnerDashboard.tsx:1935:27: '}' expected.
+src/components/OwnerDashboard.tsx:1936:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1937:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1939:55: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:1940:5: Expression expected.
+src/components/OwnerDashboard.tsx:1941:7: Expression expected.
+src/components/OwnerDashboard.tsx:1942:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1945:13: Cannot find name 'onPermanentlyDelete'.
+src/components/OwnerDashboard.tsx:1945:33: Cannot find name 'id'.
+src/components/OwnerDashboard.tsx:1945:36: '}' expected.
+src/components/OwnerDashboard.tsx:1946:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1947:7: Cannot find name 'setDeletingId'.
+src/components/OwnerDashboard.tsx:1947:26: '}' expected.
+src/components/OwnerDashboard.tsx:1948:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1949:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:1953:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1954:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1955:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1958:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1962:8: Cannot find name 'loading'.
+src/components/OwnerDashboard.tsx:1963:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1964:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1967:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1968:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1969:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1970:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1971:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1975:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1978:51: Property 'endsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/components/OwnerDashboard.tsx:1983:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1987:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1988:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1989:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1990:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1992:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1993:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1994:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1995:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:1996:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2000:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2005:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2006:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2007:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2008:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2009:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2010:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2014:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2015:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2016:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2017:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2019:25: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2026:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2027:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2028:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2032:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2033:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2034:36: Cannot find name 'handleRestore'.
+src/components/OwnerDashboard.tsx:2035:31: Cannot find name 'restoringId'.
+src/components/OwnerDashboard.tsx:2038:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2039:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2040:24: Cannot find name 'restoringId'.
+src/components/OwnerDashboard.tsx:2043:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2044:36: Cannot find name 'handlePermanentlyDelete'.
+src/components/OwnerDashboard.tsx:2045:31: Cannot find name 'deletingId'.
+src/components/OwnerDashboard.tsx:2048:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2049:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2050:24: Cannot find name 'deletingId'.
+src/components/OwnerDashboard.tsx:2055:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2056:42: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+src/components/OwnerDashboard.tsx:2065:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2069:12: '}' expected.
+src/components/OwnerDashboard.tsx:2070:28: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:2070:37: Property 'boolean' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:2070:37: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2070:38: JSX element 'boolean' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:2071:18: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:2071:27: Property 'void' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:2071:27: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2071:28: JSX element 'void' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:2072:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2074:28: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2074:29: Cannot find name 'BansSectionProps'.
+src/components/OwnerDashboard.tsx:2074:29: JSX element 'BansSectionProps' has no corresponding closing tag.
+src/components/OwnerDashboard.tsx:2075:3: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:2075:3: Left side of comma operator is unused and has no side effects.
+src/components/OwnerDashboard.tsx:2076:3: Cannot find name 'onUnbanIP'.
+src/components/OwnerDashboard.tsx:2077:3: Cannot find name 'onRefresh'.
+src/components/OwnerDashboard.tsx:2078:5: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:2079:3: Expression expected.
+src/components/OwnerDashboard.tsx:2080:45: Property 'string' does not exist on type 'JSX.IntrinsicElements'.
+src/components/OwnerDashboard.tsx:2080:45: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2080:53: Identifier expected.
+src/components/OwnerDashboard.tsx:2080:59: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:2082:43: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/OwnerDashboard.tsx:2083:5: Expression expected.
+src/components/OwnerDashboard.tsx:2083:72: Cannot find name 'ip'.
+src/components/OwnerDashboard.tsx:2084:7: Expression expected.
+src/components/OwnerDashboard.tsx:2085:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2087:24: Cannot find name 'ip'.
+src/components/OwnerDashboard.tsx:2089:7: Expression expected.
+src/components/OwnerDashboard.tsx:2095:29: Cannot find name 'ip'.
+src/components/OwnerDashboard.tsx:2096:11: '}' expected.
+src/components/OwnerDashboard.tsx:2098:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2099:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2100:43: Cannot find name 'error'.
+src/components/OwnerDashboard.tsx:2100:49: '}' expected.
+src/components/OwnerDashboard.tsx:2102:9: Cannot find name 'type'.
+src/components/OwnerDashboard.tsx:2102:13: '}' expected.
+src/components/OwnerDashboard.tsx:2105:7: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2106:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2107:7: Cannot find name 'setUnbanning'.
+src/components/OwnerDashboard.tsx:2107:25: '}' expected.
+src/components/OwnerDashboard.tsx:2108:5: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2109:3: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2112:5: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2113:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2114:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2117:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2121:7: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2123:9: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2124:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2125:13: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2128:11: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2130:15: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2131:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2135:17: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2136:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2137:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2139:23: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2141:21: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2151:19: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/OwnerDashboard.tsx:2152:36: Cannot find name 'handleUnban'.
+src/components/OwnerDashboard.tsx:2153:31: Cannot find name 'unbanning'.
+src/components/OwnerDashboard.tsx:2156:22: Cannot find name 'unbanning'.
+src/components/OwnerDashboard.tsx:2166:1: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/OwnerDashboard.tsx:2166:3: '</' expected.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:35:36: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:158:14: 'Promise' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:220:20: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:251:32: Property 'includes' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:311:48: Property 'includes' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:327:48: Property 'includes' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:381:54: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:490:60: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:560:60: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:628:39: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:678:45: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useBans.ts:700:45: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useDayAvailability.ts:39:28: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useDayAvailability.ts:101:33: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useServices.ts:40:24: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useServices.ts:50:73: Property 'includes' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/hooks/useServices.ts:126:25: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useSupabaseCustomTimeRanges.ts:62:34: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useSupabaseCustomTimeRanges.ts:114:26: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useSupabaseCustomTimeRanges.ts:148:27: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useSupabaseCustomTimeRanges.ts:184:20: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/hooks/useSupabaseCustomTimeRanges.ts:204:23: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+C:/Code/SalonLegendario-barber/src/lib/supabase.ts:4:13: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+C:/Code/SalonLegendario-barber/src/lib/supabase.ts:4:25: Property 'env' does not exist on type 'ImportMeta'.
+C:/Code/SalonLegendario-barber/src/lib/supabase.ts:5:13: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+C:/Code/SalonLegendario-barber/src/lib/supabase.ts:5:25: Property 'env' does not exist on type 'ImportMeta'.
+C:/Code/SalonLegendario-barber/src/utils/phone.ts:4:34: Property 'startsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/phone.ts:10:17: Property 'startsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/phone.ts:18:17: Property 'startsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/phone.ts:30:15: Property 'startsWith' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:20:35: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:25:35: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:34:31: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:45:35: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:49:37: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:57:33: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:68:26: No overload matches this call.
+  Overload 1 of 4, '(vd: VarDate): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'VarDate'.
+      Property 'VarDate_typekey' is missing in type 'Date' but required in type 'VarDate'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | number'.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:89:8: Property 'flatMap' does not exist on type '{ start: string; end: string; }[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2019' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:90:28: Property 'from' does not exist on type 'ArrayConstructor'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:90:37: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:119:8: Property 'flatMap' does not exist on type '{ start: string; end: string; }[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2019' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:120:28: Property 'from' does not exist on type 'ArrayConstructor'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+C:/Code/SalonLegendario-barber/src/utils/timeSlots.ts:120:37: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.

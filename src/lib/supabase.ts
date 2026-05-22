@@ -1,38 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
-
-const getSupabaseCredentials = () => {
-  let url = import.meta.env.VITE_SUPABASE_URL
-  let key = import.meta.env.VITE_SUPABASE_ANON_KEY
-
-  const isValidUrl = (str: string) => {
-    try {
-      const u = new URL(str)
-      return u.protocol === 'http:' || u.protocol === 'https:'
-    } catch {
-      return false
-    }
-  }
-
-  if (!url || url === 'TU_SUPABASE_URL_AQUI' || !isValidUrl(url)) {
-    console.warn(
-      '⚠️ [Supabase] VITE_SUPABASE_URL no está configurado o es inválido en el archivo .env. Usando URL de fallback para evitar que la aplicación falle al iniciar.'
-    )
-    url = 'https://tu-proyecto-temporal.supabase.co'
-  }
-
-  if (!key || key === 'TU_SUPABASE_ANON_KEY_AQUI') {
-    console.warn(
-      '⚠️ [Supabase] VITE_SUPABASE_ANON_KEY no está configurado en el archivo .env.'
-    )
-    key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dummy'
-  }
-
-  return { url, key }
-}
-
-const credentials = getSupabaseCredentials()
-
-export const supabase = createClient(credentials.url, credentials.key)
+export { supabase } from '../utils/supabase'
 
 // Tipos para TypeScript
 export interface AppointmentRow {
