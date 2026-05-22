@@ -846,7 +846,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black pb-safe">
+    <div className="pb-safe">
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
         
         {/* Dashboard Header */}

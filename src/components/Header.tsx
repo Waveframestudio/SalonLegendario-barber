@@ -9,6 +9,14 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
   const [showAdminButton, setShowAdminButton] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const isUrlAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
@@ -30,37 +38,25 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
   }, []);
 
   return (
-    <header className="bg-gradient-to-r from-black via-gray-900 to-black shadow-lg border-b border-amber-500/20 sticky top-0 z-40">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-black/40 backdrop-blur-sm border-b border-amber-500/15 shadow-sm'
+          : 'bg-transparent border-b border-transparent shadow-none'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo + Nombre */}
           <div className="flex items-center space-x-2">
-            <a
-              href="https://www.instagram.com/salonlegendario"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-400 hover:text-amber-300 transition-colors duration-300"
-              aria-label="Síguenos en Instagram"
-            >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="igGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#F58529" />
-                    <stop offset="35%" stopColor="#DD2A7B" />
-                    <stop offset="70%" stopColor="#8134AF" />
-                    <stop offset="100%" stopColor="#515BD4" />
-                    <animateTransform attributeName="gradientTransform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite" />
-                  </linearGradient>
-                </defs>
-                <rect x="3" y="3" width="18" height="18" rx="5" stroke="url(#igGradient)" strokeWidth="2" />
-                <circle cx="12" cy="12" r="4" stroke="url(#igGradient)" strokeWidth="2" />
-                <circle cx="17.5" cy="6.5" r="1.25" fill="url(#igGradient)" />
-              </svg>
-            </a>
-
+            <img
+              src="/logo.PNG"
+              alt="Salón Legendario"
+              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover flex-shrink-0"
+            />
             <div>
               <h1 className="text-base sm:text-lg font-bold tracking-tight drop-shadow-lg animate-shimmer leading-tight">
-                Salon Legendario
+                Salón Legendario
               </h1>
               <p className="text-amber-400/80 text-[10px] sm:text-xs font-medium animate-fade-in leading-tight">
                 Barbería Premium

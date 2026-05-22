@@ -5,7 +5,7 @@ import { OwnerDashboard } from './components/OwnerDashboard';
 import { NotificationToast } from './components/NotificationToast';
 import { PinAuthModal } from './components/PinAuthModal';
 import { BackButton } from './components/BackButton';
-import { BackgroundMusic } from './components/BackgroundMusic';
+import { Footer } from './components/Footer';
 import { AppointmentBanner } from './components/AppointmentBanner';
 import { ConfirmationModal } from './components/ConfirmationModal';
 import { SEOHead } from './components/SEOHead';
@@ -281,7 +281,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 relative">
+    <div className="min-h-screen bg-[#0a0f18] relative flex flex-col">
       <SEOHead
         title={view === 'customer'
           ? 'Salon Legendario - Reserva tu Turno Online | Barbería Premium'
@@ -311,26 +311,30 @@ function App() {
         />
       )}
 
-      {view === 'customer' ? (
-        <CustomerView
-          appointments={appointments}
-          onNewAppointment={handleNewAppointment}
-          selectedService={selectedService}
-          onServiceSelect={setSelectedService}
-        />
-      ) : (
-        <OwnerDashboard
-          appointments={appointments}
-          onDeleteAppointment={handleDeleteAppointment}
-          onUpdateAppointment={handleUpdateAppointment}
-          onNewAppointment={handleNewAppointment}
-          onRestoreAppointment={restoreAppointment}
-          onPermanentlyDeleteAppointment={permanentlyDeleteAppointment}
-          loadDeletedAppointments={loadDeletedAppointments}
-          onRefreshAppointments={refreshAppointments}
-          addNotification={addNotification}
-        />
-      )}
+      <div>
+        {view === 'customer' ? (
+          <CustomerView
+            appointments={appointments}
+            onNewAppointment={handleNewAppointment}
+            selectedService={selectedService}
+            onServiceSelect={setSelectedService}
+          />
+        ) : (
+          <OwnerDashboard
+            appointments={appointments}
+            onDeleteAppointment={handleDeleteAppointment}
+            onUpdateAppointment={handleUpdateAppointment}
+            onNewAppointment={handleNewAppointment}
+            onRestoreAppointment={restoreAppointment}
+            onPermanentlyDeleteAppointment={permanentlyDeleteAppointment}
+            loadDeletedAppointments={loadDeletedAppointments}
+            onRefreshAppointments={refreshAppointments}
+            addNotification={addNotification}
+          />
+        )}
+      </div>
+
+      <Footer />
 
       {/* Notifications */}
       <div className="fixed top-4 right-4 z-50 space-y-2">
@@ -360,9 +364,6 @@ function App() {
         onCancel={() => setShowCancelModal(false)}
         isLoading={isCancelling}
       />
-
-      {/* Background Music */}
-      <BackgroundMusic />
 
     </div>
   );

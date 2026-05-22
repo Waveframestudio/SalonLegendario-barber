@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  #root {
+    background-color: #0a0f18;
+    min-height: 100%;
+  }
+
   html {
     scrollbar-width: none;
     -ms-overflow-style: none;

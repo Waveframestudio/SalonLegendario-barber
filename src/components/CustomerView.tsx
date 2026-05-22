@@ -51,7 +51,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black pb-safe">
+    <div className="pb-safe">
       {selectedTime && selectedService && !showBookingForm && (
         <BackButton onClick={() => setSelectedTime(null)} label="Cambiar horario" className="top-24" />
       )}
@@ -59,7 +59,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
         <BackButton onClick={() => { onServiceSelect(null); setSelectedTime(null); }} label="Volver" className="top-24" />
       )}
 
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
 
         {/* Hero */}
         <div className="text-center mb-6 sm:mb-10">
@@ -71,7 +71,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
           </p>
 
           {!selectedService && (
-            <div className="bg-gray-900 border border-amber-500/20 rounded-3xl p-4 sm:p-6 shadow-xl max-w-4xl mx-auto animate-slide-up hover:shadow-amber-500/10 transition-all duration-500 hover:scale-105">
+            <div className="bg-gray-900 border border-gray-700 rounded-3xl p-4 sm:p-6 shadow-xl max-w-4xl mx-auto animate-slide-up transition-all duration-300 hover:border-amber-500/60 hover:shadow-amber-500/10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
                 {[
                   { icon: MapPin, color: 'amber', label: 'Ubicación', sub: 'Ricardo Rojas, Tigre' },
@@ -100,7 +100,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
         {/* Service Selection */}
         {!selectedService && (
           <div className="mb-6">
-            <div className="bg-gray-900 border border-amber-500/20 rounded-3xl p-4 sm:p-6 shadow-xl">
+            <div className="bg-gray-900 border border-gray-700 rounded-3xl p-4 sm:p-6 shadow-xl transition-all duration-300 hover:border-amber-500/60 hover:shadow-amber-500/10">
               <ServiceSelector
                 selectedService={selectedService}
                 onServiceSelect={(service) => { onServiceSelect(service); setSelectedTime(null); }}

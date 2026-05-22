@@ -30,7 +30,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
               group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-300 transform active:scale-95 sm:hover:scale-105 text-left
               ${selectedService?.id === service.id
                 ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/30'
-                : 'bg-gray-900 border-2 border-gray-700 hover:border-amber-500/60 hover:shadow-md hover:shadow-amber-500/10 text-gray-200 hover:bg-gray-800'
+                : 'bg-gray-900 border-2 border-gray-700 hover:border-amber-500 hover:shadow-md hover:shadow-amber-500/15 text-gray-200 hover:bg-gray-800'
               }
             `}
           >
