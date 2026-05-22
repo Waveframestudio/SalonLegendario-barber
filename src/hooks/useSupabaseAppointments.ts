@@ -277,26 +277,34 @@ export const useSupabaseAppointments = () => {
         ip_address: insertData.ip_address
       });
       
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('appointments')
         .insert([insertData])
-        .select()
-        .single()
 
       if (error) {
         console.error('[addAppointment] ❌ Error insertando en Supabase:', error);
         console.error('[addAppointment] Datos que se intentaron insertar:', insertData);
+        const isPermissionError =
+          error.code === '42501' ||
+          (error as { status?: number }).status === 401 ||
+          (error as { status?: number }).status === 403;
+        if (isPermissionError) {
+          throw new Error(
+            'No se pudo guardar el turno: permisos de Supabase. Ejecutá supabase/fix_booking_permissions.sql en el SQL Editor de tu proyecto.'
+          );
+        }
         throw error;
       }
 
       console.log('[addAppointment] ✅ Turno guardado exitosamente');
-      console.log('[addAppointment] 📥 Respuesta de Supabase:', {
-        id: data?.id,
-        ip_address_en_respuesta: data?.ip_address,
-        data_completa: data
-      });
-      
-      const newAppointment = convertToAppointment(data);
+
+      const newAppointment: Appointment = {
+        ...appointment,
+        id: withId.id as string,
+        ipAddress: userIP || undefined,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       console.log('[addAppointment] 🔄 Appointment convertido:', {
         id: newAppointment.id,
         ipAddress: newAppointment.ipAddress,

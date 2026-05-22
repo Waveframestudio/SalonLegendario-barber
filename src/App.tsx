@@ -171,7 +171,9 @@ function App() {
         title: isBanError ? 'Acceso Bloqueado' : 'Error',
         message: isBanError
           ? errorMessage
-          : 'No se pudo crear el turno. Intenta nuevamente.'
+          : errorMessage.includes('permisos de Supabase')
+            ? errorMessage
+            : 'No se pudo crear el turno. Intenta nuevamente.'
       });
     }
   };

@@ -42,11 +42,15 @@ export function useDayAvailability() {
       // Intentar cargar desde Supabase
       const { data, error: supabaseError } = await supabase
         .from('day_availability')
-        .select('*')
-        .single();
+        .select('friday, saturday')
+        .maybeSingle();
 
-      if (supabaseError && supabaseError.code !== 'PGRST116') { // PGRST116 = no rows returned
-        throw supabaseError;
+      if (supabaseError) {
+        const isPermissionOrEmpty =
+          supabaseError.code === 'PGRST116' ||
+          (supabaseError as { status?: number }).status === 401 ||
+          (supabaseError as { status?: number }).status === 406;
+        if (!isPermissionOrEmpty) throw supabaseError;
       }
 
       if (data) {
@@ -57,18 +61,8 @@ export function useDayAvailability() {
         setAvailability(loaded);
         writeLocal(loaded);
       } else {
-        // Si no hay datos en Supabase, usar localStorage
         const local = readLocal();
         setAvailability(local);
-        // Intentar crear registro inicial en Supabase
-        try {
-          await supabase
-            .from('day_availability')
-            .insert([{ friday: local.friday, saturday: local.saturday }]);
-        } catch (insertError) {
-          // Si falla, solo usar localStorage
-          console.log('No se pudo crear registro en Supabase, usando localStorage');
-        }
       }
       setError(null);
     } catch (err) {
@@ -113,10 +107,13 @@ export function useDayAvailability() {
 
     try {
       // Intentar actualizar en Supabase
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+
       const { data: existingData } = await supabase
         .from('day_availability')
         .select('*')
-        .single();
+        .maybeSingle();
 
       if (existingData) {
         // Actualizar registro existente

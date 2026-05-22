@@ -69,23 +69,25 @@ export function useServices() {
         }));
         setServices(loadedServices);
       } else {
-        // Si no hay datos, usar servicios por defecto e insertarlos
         setServices(defaultServices);
-        try {
-          await supabase
-            .from('services')
-            .insert(defaultServices.map((s, index) => ({
-              id: s.id,
-              name: s.name,
-              duration: s.duration,
-              price: s.price,
-              description: s.description,
-              icon: s.icon,
-              is_active: true,
-              order_index: index + 1
-            })));
-        } catch (insertError) {
-          console.log('No se pudieron insertar servicios por defecto en Supabase');
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+          try {
+            await supabase
+              .from('services')
+              .insert(defaultServices.map((s, index) => ({
+                id: s.id,
+                name: s.name,
+                duration: s.duration,
+                price: s.price,
+                description: s.description,
+                icon: s.icon,
+                is_active: true,
+                order_index: index + 1
+              })));
+          } catch {
+            console.log('No se pudieron insertar servicios por defecto en Supabase');
+          }
         }
       }
       setError(null);
