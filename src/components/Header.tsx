@@ -30,11 +30,11 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
   }, []);
 
   return (
-    <header className="bg-gradient-to-r from-black via-gray-900 to-black shadow-2xl border-b border-amber-500/20 sticky top-0 z-40">
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-5">
+    <header className="bg-gradient-to-r from-black via-gray-900 to-black shadow-lg border-b border-amber-500/20 sticky top-0 z-40">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo + Nombre */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <a
               href="https://www.instagram.com/salonlegendario"
               target="_blank"
@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
               className="text-amber-400 hover:text-amber-300 transition-colors duration-300"
               aria-label="Síguenos en Instagram"
             >
-              <svg viewBox="0 0 24 24" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="igGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#F58529" />
@@ -59,34 +59,34 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
             </a>
 
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight drop-shadow-lg animate-shimmer">
+              <h1 className="text-base sm:text-lg font-bold tracking-tight drop-shadow-lg animate-shimmer leading-tight">
                 Salon Legendario
               </h1>
-              <p className="text-amber-400/80 text-xs sm:text-sm font-medium animate-fade-in">
+              <p className="text-amber-400/80 text-[10px] sm:text-xs font-medium animate-fade-in leading-tight">
                 Barbería Premium
               </p>
             </div>
           </div>
 
           {/* Botones */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <button
               onClick={() => onViewChange('customer')}
-              className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+              className={`flex items-center justify-center space-x-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                 view === 'customer'
                   ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/30'
                   : 'bg-gray-900/80 backdrop-blur-sm text-gray-300 hover:bg-gray-800 hover:text-white border border-gray-700 hover:border-amber-500/40'
               }`}
             >
-              <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="text-xs sm:text-sm">Reservar</span>
+              <Calendar className="h-3.5 w-3.5" />
+              <span>Reservar</span>
             </button>
 
             {showAdminButton && (
               <div className="group relative">
                 <button
                   onClick={() => onViewChange('owner')}
-                  className={`w-8 h-8 rounded-full transition-all duration-300 flex items-center justify-center ${
+                  className={`w-7 h-7 rounded-full transition-all duration-300 flex items-center justify-center ${
                     view === 'owner'
                       ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
                       : 'bg-gray-900/50 hover:bg-gray-800 text-gray-600 hover:text-amber-400 border border-gray-700'
