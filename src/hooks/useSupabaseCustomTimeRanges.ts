@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase, CustomTimeRangeRow } from '../lib/supabase'
 import { CustomTimeRanges } from '../utils/timeSlots'
 
@@ -111,7 +111,7 @@ export function useSupabaseCustomTimeRanges() {
     return next
   }
 
-  const loadFromServer = async () => {
+  const loadFromServer = useCallback(async () => {
     try {
       setLoading(true)
       
@@ -137,11 +137,11 @@ export function useSupabaseCustomTimeRanges() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   useEffect(() => {
     loadFromServer()
-  }, [])
+  }, [loadFromServer])
 
   // Verificar periódicamente si es domingo para resetear (por si la app está abierta durante la transición)
   useEffect(() => {
@@ -169,16 +169,6 @@ export function useSupabaseCustomTimeRanges() {
     const interval = setInterval(checkAndReset, 60 * 60 * 1000) // Cada hora
 
     return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
-    const channel = supabase
-      .channel('custom_time_ranges_changes')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'custom_time_ranges' }, () => {
-        loadFromServer()
-      })
-      .subscribe()
-    return () => { supabase.removeChannel(channel) }
   }, [])
 
   const addRange = async (day: 'friday' | 'saturday', start: string, end: string) => {
