@@ -50,23 +50,35 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
     setShowBookingForm(false);
   };
 
+  const isBookingStep = !!selectedService && !showBookingForm;
+
   return (
-    <div className="pb-safe">
-      {selectedTime && selectedService && !showBookingForm && (
-        <BackButton onClick={() => setSelectedTime(null)} label="Cambiar horario" className="top-24" />
-      )}
-      {selectedService && !selectedTime && (
-        <BackButton onClick={() => { onServiceSelect(null); setSelectedTime(null); }} label="Volver" className="top-24" />
-      )}
-
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
-
+    <div className={`pb-safe w-full flex-1 flex flex-col ${isBookingStep ? 'justify-start pt-4 sm:pt-6' : ''}`}>
+      <div className={`max-w-4xl mx-auto w-full px-3 sm:px-4 ${isBookingStep ? 'py-2 sm:py-3' : 'py-4 sm:py-6'}`}>
         {/* Hero */}
-        <div className="text-center mb-6 sm:mb-10">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent mb-3 drop-shadow-lg animate-pulse">
-            Reserva tu Turno
-          </h2>
-          <p className="text-base sm:text-lg text-gray-400 mb-6 px-2 animate-fade-in-up">
+        <div className={`text-center ${isBookingStep ? 'mb-4 sm:mb-5' : 'mb-6 sm:mb-10'}`}>
+          <div className="relative flex items-center justify-center mb-2 min-h-[2.25rem] sm:min-h-[2.75rem]">
+            {selectedTime && selectedService && !showBookingForm && (
+              <BackButton
+                inline
+                onClick={() => setSelectedTime(null)}
+                label="Cambiar horario"
+                className="absolute -left-1 sm:-left-2"
+              />
+            )}
+            {selectedService && !selectedTime && (
+              <BackButton
+                inline
+                onClick={() => { onServiceSelect(null); setSelectedTime(null); }}
+                label="Volver"
+                className="absolute -left-1 sm:-left-2"
+              />
+            )}
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg animate-pulse px-16 sm:px-20">
+              Reserva tu Turno
+            </h2>
+          </div>
+          <p className={`text-base sm:text-lg text-gray-400 px-2 animate-fade-in-up ${isBookingStep ? 'mb-3 sm:mb-4' : 'mb-6'}`}>
             Experimenta el mejor servicio de barbería en un ambiente exclusivo
           </p>
 

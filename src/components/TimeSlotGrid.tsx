@@ -43,12 +43,6 @@ export const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
               <span className="text-xs font-medium text-red-400">Ocupado</span>
             </div>
           )}
-          
-          {slot.available && (
-            <div className={`absolute inset-x-0 bottom-1 h-1 rounded-full transition-all duration-300 ${
-              selectedTime === slot.time ? 'bg-black/30' : 'bg-transparent group-hover:bg-amber-500/60'
-            }`} />
-          )}
         </button>
       ))}
     </div>

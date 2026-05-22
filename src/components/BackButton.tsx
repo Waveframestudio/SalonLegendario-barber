@@ -5,22 +5,24 @@ interface BackButtonProps {
   onClick: () => void;
   label?: string;
   className?: string;
+  inline?: boolean;
 }
 
 export const BackButton: React.FC<BackButtonProps> = ({ 
   onClick, 
   label = "Volver", 
-  className = "" 
+  className = "",
+  inline = false,
 }) => {
   return (
     <button
       onClick={onClick}
       className={`
-        fixed top-20 left-4 z-40 flex items-center space-x-2 px-4 py-2.5 
-        bg-gray-800/90 backdrop-blur-sm border border-gray-600 
-        text-gray-300 hover:text-white hover:bg-gray-700/90 
-        rounded-xl transition-all duration-200 shadow-lg
-        hover:shadow-xl hover:scale-105 active:scale-95
+        flex items-center gap-1.5 text-gray-400 hover:text-amber-400 transition-colors duration-200
+        ${inline
+          ? ''
+          : 'fixed top-14 left-3 sm:left-4 z-40'
+        }
         ${className}
       `}
     >
