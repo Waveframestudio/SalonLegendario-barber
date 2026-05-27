@@ -13,6 +13,18 @@ export const SettingsSection: React.FC<{
   onNewAppointment: (appointment: Omit<Appointment, 'id' | 'createdAt' | 'updatedAt'>) => void;
   addNotification?: (notification: { type: 'success' | 'error' | 'warning' | 'info'; title: string; message: string; duration?: number }) => void;
 }> = ({ appointments, onNewAppointment, addNotification: addNotificationProp }) => {
+  const WEEK_DAYS = [
+    { key: 'monday', label: 'Lunes' },
+    { key: 'tuesday', label: 'Martes' },
+    { key: 'wednesday', label: 'Miércoles' },
+    { key: 'thursday', label: 'Jueves' },
+    { key: 'friday', label: 'Viernes' },
+    { key: 'saturday', label: 'Sábado' },
+    { key: 'sunday', label: 'Domingo' }
+  ] as const;
+  const isSupportedDay = (day: string): day is 'friday' | 'saturday' =>
+    day === 'friday' || day === 'saturday';
+
   const [fridayStart, setFridayStart] = useState('');
   const [fridayEnd, setFridayEnd] = useState('');
   const [saturdayStart, setSaturdayStart] = useState('');
@@ -25,6 +37,7 @@ export const SettingsSection: React.FC<{
   const [editingServices, setEditingServices] = useState<Record<string, { name: string; description: string; price: number; duration: number; icon: string; isActive: boolean }>>({});
   const [isAddingService, setIsAddingService] = useState(false);
   const [newServiceForm, setNewServiceForm] = useState({ name: '', description: '', price: '', icon: '✂️', duration: '30' });
+  const [openRangeDay, setOpenRangeDay] = useState<'friday' | 'saturday' | null>('friday');
 
   // Inicializar datos de edición con los valores actuales
   useEffect(() => {
@@ -200,124 +213,108 @@ export const SettingsSection: React.FC<{
           Disponibilidad de días
         </h4>
         <p className="text-gray-400 text-sm text-center mb-4">
-          Activa o desactiva los días de atención. Los días desactivados aparecerán como cerrados para los clientes.
+          Viernes y Sábado están activos en el sistema actual. Los demás días figuran para planificación visual.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Switch Viernes */}
-          <div className="flex items-center justify-between bg-gray-700/50 border border-gray-600 rounded-xl p-4">
-            <div>
-              <p className="font-medium text-white">Viernes</p>
-              <p className="text-xs text-gray-400 mt-1">
-                {availability.friday ? 'Disponible para clientes' : 'Cerrado - No disponible'}
-              </p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={availability.friday}
-                onChange={(e) => handleToggleDay('friday', e.target.checked)}
-                disabled={availabilityLoading}
-                className="sr-only peer"
-              />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
-            </label>
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+          {WEEK_DAYS.map((day) => {
+            const supported = isSupportedDay(day.key);
+            const enabled = supported ? availability[day.key] : false;
 
-          {/* Switch Sábado */}
-          <div className="flex items-center justify-between bg-gray-700/50 border border-gray-600 rounded-xl p-4">
-            <div>
-              <p className="font-medium text-white">Sábado</p>
-              <p className="text-xs text-gray-400 mt-1">
-                {availability.saturday ? 'Disponible para clientes' : 'Cerrado - No disponible'}
-              </p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={availability.saturday}
-                onChange={(e) => handleToggleDay('saturday', e.target.checked)}
-                disabled={availabilityLoading}
-                className="sr-only peer"
-              />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
-            </label>
-          </div>
+            return (
+              <div key={day.key} className={`bg-gray-700/50 border rounded-xl px-2 py-2 ${supported ? 'border-gray-600' : 'border-gray-700 opacity-70'}`}>
+                <p className="font-medium text-white text-xs text-center">{day.label}</p>
+                <div className="mt-2 flex justify-center">
+                  <label className={`relative inline-flex items-center ${supported ? 'cursor-pointer' : 'cursor-not-allowed'}`}>
+                    <input
+                      type="checkbox"
+                      checked={enabled}
+                      onChange={(e) => supported && handleToggleDay(day.key, e.target.checked)}
+                      disabled={!supported || availabilityLoading}
+                      className="sr-only peer"
+                    />
+                    <div className="w-9 h-5 bg-gray-600 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-amber-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-500"></div>
+                  </label>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* Añadir horarios adicionales + Rangos actuales en layout lado a lado */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Columna izquierda (viernes y sábado apilados) */}
-        <div className="md:col-span-2 space-y-4">
-          <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6">
-          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-amber-400 mr-2" />Añadir horarios adicionales para viernes</h4>
-          <div className="flex items-center gap-3 mb-3">
-            <select
-              value={fridayStart}
-              onChange={(e) => { setFridayStart(e.target.value); setFridayEnd(''); }}
-              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-            >
-              <option value="">Inicio</option>
-              {getStartOptions('friday').map(t => (
-                <option key={`fs-${t}`} value={t}>{t}</option>
-              ))}
-            </select>
-            <span className="text-gray-300">a</span>
-            <select
-              value={fridayEnd}
-              onChange={(e) => setFridayEnd(e.target.value)}
-              disabled={!fridayStart}
-              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 disabled:opacity-50"
-            >
-              <option value="">Fin</option>
-              {getEndOptions('friday', fridayStart).map(t => (
-                <option key={`fe-${t}`} value={t}>{t}</option>
-              ))}
-            </select>
-          </div>
-          <button
-            onClick={() => onSaveRange('friday', fridayStart, fridayEnd)}
-            disabled={!fridayStart || !fridayEnd}
-            className="w-full px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold"
-          >
-            Guardar rango para Viernes
-          </button>
-          </div>
+        {/* Columna izquierda (desplegables por día) */}
+        <div className="md:col-span-2 space-y-3">
+          {WEEK_DAYS.map((day) => {
+            const supported = isSupportedDay(day.key);
+            const supportedDay: 'friday' | 'saturday' | null = supported ? day.key : null;
+            const isOpen = supported && openRangeDay === day.key;
+            const currentStart = day.key === 'friday' ? fridayStart : saturdayStart;
+            const currentEnd = day.key === 'friday' ? fridayEnd : saturdayEnd;
 
-          <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 sm:p-6">
-          <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-center"><Clock className="h-4 w-4 text-amber-400 mr-2" />Añadir horarios adicionales para sabado</h4>
-          <div className="flex items-center gap-3 mb-3">
-            <select
-              value={saturdayStart}
-              onChange={(e) => { setSaturdayStart(e.target.value); setSaturdayEnd(''); }}
-              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-            >
-              <option value="">Inicio</option>
-              {getStartOptions('saturday').map(t => (
-                <option key={`ss-${t}`} value={t}>{t}</option>
-              ))}
-            </select>
-            <span className="text-gray-300">a</span>
-            <select
-              value={saturdayEnd}
-              onChange={(e) => setSaturdayEnd(e.target.value)}
-              disabled={!saturdayStart}
-              className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 disabled:opacity-50"
-            >
-              <option value="">Fin</option>
-              {getEndOptions('saturday', saturdayStart).map(t => (
-                <option key={`se-${t}`} value={t}>{t}</option>
-              ))}
-            </select>
-          </div>
-          <button
-            onClick={() => onSaveRange('saturday', saturdayStart, saturdayEnd)}
-            disabled={!saturdayStart || !saturdayEnd}
-            className="w-full px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold"
-          >
-            Guardar rango para Sábado
-          </button>
-          </div>
+            return (
+              <div key={`range-${day.key}`} className="bg-gray-800 border border-gray-700 rounded-2xl p-3 sm:p-4">
+                <button
+                  type="button"
+                  onClick={() => supported && setOpenRangeDay(isOpen ? null : day.key)}
+                  className={`w-full flex items-center justify-between text-left ${supported ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'}`}
+                >
+                  <span className="text-white font-semibold flex items-center">
+                    <Clock className="h-4 w-4 text-amber-400 mr-2" />
+                    Añadir horarios para {day.label}
+                  </span>
+                  <span className="text-gray-400 text-xs">{supported ? (isOpen ? 'Ocultar' : 'Mostrar') : 'Próximamente'}</span>
+                </button>
+
+                {isOpen && (
+                  <div className="mt-3">
+                    <div className="flex items-center gap-3 mb-3">
+                      <select
+                        value={currentStart}
+                        onChange={(e) => {
+                          if (day.key === 'friday') {
+                            setFridayStart(e.target.value);
+                            setFridayEnd('');
+                          } else {
+                            setSaturdayStart(e.target.value);
+                            setSaturdayEnd('');
+                          }
+                        }}
+                        className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                      >
+                        <option value="">Inicio</option>
+                        {supportedDay && getStartOptions(supportedDay).map(t => (
+                          <option key={`${day.key}-s-${t}`} value={t}>{t}</option>
+                        ))}
+                      </select>
+                      <span className="text-gray-300">a</span>
+                      <select
+                        value={currentEnd}
+                        onChange={(e) => {
+                          if (day.key === 'friday') setFridayEnd(e.target.value);
+                          else setSaturdayEnd(e.target.value);
+                        }}
+                        disabled={!currentStart}
+                        className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 disabled:opacity-50"
+                      >
+                        <option value="">Fin</option>
+                        {supportedDay && getEndOptions(supportedDay, currentStart).map(t => (
+                          <option key={`${day.key}-e-${t}`} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <button
+                      onClick={() => supportedDay && onSaveRange(supportedDay, currentStart, currentEnd)}
+                      disabled={!currentStart || !currentEnd}
+                      className="w-full px-4 py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black rounded-lg transition-colors font-semibold disabled:opacity-60"
+                    >
+                      Guardar rango para {day.label}
+                    </button>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
  
         {/* Columna derecha (Rangos actuales) */}
