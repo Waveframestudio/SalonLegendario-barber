@@ -62,7 +62,8 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
   const isBookingStep = !!selectedService && !showBookingForm;
 
   return (
-    <div className={`pb-safe w-full flex-1 flex flex-col ${isBookingStep ? 'justify-start pt-4 sm:pt-6' : ''}`}>
+    <>
+      <div className={`pb-safe w-full flex-1 flex flex-col ${isBookingStep ? 'justify-start pt-4 sm:pt-6' : ''}`}>
       <div className={`max-w-4xl mx-auto w-full px-3 sm:px-4 transition-all duration-300 ease-in-out ${isBookingStep ? 'py-2 sm:py-3' : 'py-4 sm:py-6'} ${isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
         {/* Hero */}
         <div className={`text-center ${isBookingStep ? 'mb-4 sm:mb-5' : 'mb-6 sm:mb-10'}`}>
@@ -221,17 +222,19 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
           </>
         )}
 
-        {/* Booking Form Modal */}
-        {showBookingForm && selectedTime && selectedService && (
-          <BookingForm
-            selectedDate={selectedDate}
-            selectedTime={selectedTime}
-            selectedService={selectedService}
-            onBookingComplete={handleBookingComplete}
-            onCancel={() => setShowBookingForm(false)}
-          />
-        )}
       </div>
     </div>
+
+    {/* Booking Form Modal - outside transition wrapper to prevent background blackout */}
+    {showBookingForm && selectedTime && selectedService && (
+      <BookingForm
+        selectedDate={selectedDate}
+        selectedTime={selectedTime}
+        selectedService={selectedService}
+        onBookingComplete={handleBookingComplete}
+        onCancel={() => setShowBookingForm(false)}
+      />
+    )}
+    </>
   );
 };

@@ -19,6 +19,14 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showPolicies, setShowPolicies] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleCancel = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onCancel();
+    }, 220);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,8 +46,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   if (showConfirmation) {
     return (
-      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div className="bg-gray-900 border border-gray-700 rounded-3xl p-8 max-w-md w-full animate-pulse shadow-2xl">
+      <div className="fixed inset-0 flex items-center justify-center p-4 z-50 pointer-events-none backdrop-blur-sm">
+        <div className="bg-gray-900 border border-gray-700 rounded-3xl p-8 max-w-md w-full animate-pulse shadow-2xl pointer-events-auto">
           <div className="text-center">
             <div className="bg-green-500/20 border border-green-500/30 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="h-10 w-10 text-green-400" />
@@ -51,7 +59,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               <p><strong className="text-amber-400">Hora:</strong> {selectedTime}</p>
               <p><strong className="text-amber-400">Servicio:</strong> {selectedService.name}</p>
               <p><strong className="text-amber-400">Duración:</strong> {selectedService.duration} min</p>
-              <p><strong className="text-amber-400">Precio:</strong> ${selectedService.price.toLocaleString()}</p>
+              <p><strong className="text-amber-400">Precio:</strong> ${selectedService.price.toLocaleString('es-AR')}</p>
               <p><strong className="text-amber-400">Cliente:</strong> {customerName}</p>
               {additionalNames.length > 0 && (
                 <p><strong className="text-amber-400">Acompañantes:</strong> {additionalNames.filter(n => n.trim().length > 0).join(', ')}</p>
@@ -64,8 +72,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 z-50">
-      <div className="bg-gray-900 border border-gray-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center p-3 sm:p-4 z-50 pointer-events-none backdrop-blur-sm">
+      <div className={`bg-gray-900 border border-gray-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto pointer-events-auto ${isClosing ? 'animate-scale-out' : 'animate-scale-in'}`}>
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
           Confirmar Turno
         </h3>
@@ -90,7 +98,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   <p className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">{selectedService.description}</p>
                 </div>
                 <div className="text-center sm:text-right">
-                  <p className="font-bold text-white text-lg sm:text-base">${selectedService.price.toLocaleString()}</p>
+                  <p className="font-bold text-white text-lg sm:text-base">${selectedService.price.toLocaleString('es-AR')}</p>
                   <p className="text-xs sm:text-sm text-gray-500">{selectedService.duration} min</p>
                 </div>
               </div>
@@ -177,7 +185,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
             </button>
             <button
               type="button"
-              onClick={onCancel}
+              onClick={handleCancel}
               className="px-5 py-2 border border-gray-700 text-gray-300 bg-gray-800 rounded-lg hover:bg-gray-700 hover:border-amber-500/60 hover:text-white transition-all duration-200 font-medium text-sm"
             >
               Cancelar
