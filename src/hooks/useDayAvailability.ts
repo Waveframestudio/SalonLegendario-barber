@@ -82,8 +82,13 @@ export function useDayAvailability() {
 
   // Suscribirse a cambios en tiempo real
   useEffect(() => {
+    // En React StrictMode (dev) este efecto puede montarse/desmontarse dos veces.
+    // Si reusamos el mismo nombre de canal, Supabase puede devolver un canal ya
+    // suscripto y lanzar: "cannot add postgres_changes callbacks ... after subscribe()".
+    const channelName = `day_availability_changes_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+
     const channel = supabase
-      .channel('day_availability_changes')
+      .channel(channelName)
       .on('postgres_changes', {
         event: '*',
         schema: 'public',

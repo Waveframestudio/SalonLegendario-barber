@@ -106,8 +106,11 @@ export function useServices() {
 
   // Suscribirse a cambios en tiempo real
   useEffect(() => {
+    // Evita choques en React StrictMode (dev) por doble montaje de efectos
+    const channelName = `services_changes_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+
     const channel = supabase
-      .channel('services_changes')
+      .channel(channelName)
       .on('postgres_changes', {
         event: '*',
         schema: 'public',

@@ -475,6 +475,13 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const theme = isSobreturno ? 'orange' : 'amber';
       const now = currentTime;
       const isPast = !!d && d.getTime() < now.getTime();
+      const serviceName = appointment.service.name.toLowerCase();
+      const serviceAccent = (() => {
+        if (isSobreturno) return 'orange';
+        if (serviceName.includes('barba')) return 'blue';
+        if (serviceName.includes('diseño') || serviceName.includes('diseno')) return 'pink';
+        return 'amber';
+      })();
       
       // Verificar si el turno está baneado usando las funciones del hook
       // bannedIPs.length se usa aquí para que React detecte cambios y re-renderice
@@ -483,12 +490,15 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const appointmentEmailBanned = appointment.customerEmail ? isEmailBanned(appointment.customerEmail) : false;
       const isBanned = appointmentIPBanned || appointmentPhoneBanned || appointmentEmailBanned;
       const isEditing = editingId === appointment.id;
-      const borderClass = theme === 'orange'
+      const borderClass = serviceAccent === 'orange'
         ? 'border-l-orange-500'
-        : (isPast ? 'border-l-amber-600' : 'border-l-amber-500');
+        : serviceAccent === 'blue'
+          ? 'border-l-blue-500'
+          : serviceAccent === 'pink'
+            ? 'border-l-pink-500'
+            : (isPast ? 'border-l-amber-600' : 'border-l-amber-500');
       const iconAccentClass = (() => {
-        const serviceName = appointment.service.name.toLowerCase();
-        if (theme === 'orange') return 'bg-orange-500/20 border border-orange-500/30';
+        if (serviceAccent === 'orange') return 'bg-orange-500/20 border border-orange-500/30';
         if (serviceName.includes('barba')) return 'bg-blue-500/20 border border-blue-500/30';
         if (serviceName.includes('diseño') || serviceName.includes('diseno')) return 'bg-pink-500/20 border border-pink-500/30';
         return isPast
@@ -966,6 +976,8 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 }
               }}
             />
+          ) : activeTab === 'settings' ? (
+          <SettingsSection appointments={appointments} onNewAppointment={onNewAppointment} addNotification={addNotification} />
           ) : activeTab === 'appointments' ? (
             <>
         {/* Stats Cards */}
@@ -1159,9 +1171,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           </div>
         )}
         </>
-        ) : (
-          <SettingsSection appointments={appointments} onNewAppointment={onNewAppointment} addNotification={addNotification} />
-        )}
+        ) : null}
           </div>
 
         {/* Modal de Confirmación de Baneo */}

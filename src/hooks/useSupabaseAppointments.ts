@@ -96,8 +96,11 @@ export const useSupabaseAppointments = () => {
 
   // Suscribirse a cambios en tiempo real
   useEffect(() => {
+    // Evita conflictos en StrictMode por reutilización de nombre de canal
+    const channelName = `appointments_changes_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+
     const channel = supabase
-      .channel('appointments_changes')
+      .channel(channelName)
       .on(
         'postgres_changes',
         {
