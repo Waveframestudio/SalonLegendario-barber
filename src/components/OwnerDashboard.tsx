@@ -485,9 +485,15 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const borderClass = theme === 'orange'
         ? 'border-l-orange-500'
         : (isPast ? 'border-l-amber-600' : 'border-l-amber-500');
-      const bgBorderClass = theme === 'orange'
-        ? 'bg-orange-500/20 border border-orange-500/30'
-        : (isPast ? 'bg-amber-600/20 border border-amber-600/30' : 'bg-amber-500/20 border border-amber-500/30');
+      const iconAccentClass = (() => {
+        const serviceName = appointment.service.name.toLowerCase();
+        if (theme === 'orange') return 'bg-orange-500/20 border border-orange-500/30';
+        if (serviceName.includes('barba')) return 'bg-blue-500/20 border border-blue-500/30';
+        if (serviceName.includes('diseño') || serviceName.includes('diseno')) return 'bg-pink-500/20 border border-pink-500/30';
+        return isPast
+          ? 'bg-amber-600/20 border border-amber-600/30'
+          : 'bg-amber-500/20 border border-amber-500/30';
+      })();
       const dateTextColor = theme === 'orange'
         ? 'text-orange-300'
         : (isPast ? 'text-amber-500' : 'text-amber-400');
@@ -496,7 +502,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
     <div key={appointment.id} className={`bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg border-l-4 ${borderClass} hover:shadow-xl transition-all duration-300 relative`}>
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center space-x-3">
-          <div className={`rounded-full p-2 ${bgBorderClass} ${isPast ? 'opacity-60' : ''}`}>
+          <div className={`rounded-full p-2 ${iconAccentClass} ${isPast ? 'opacity-60' : ''}`}>
             <span className="text-lg">{appointment.service.icon}</span>
           </div>
           <div>
@@ -596,24 +602,18 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              value={editForm.customerEmail}
-              onChange={(e) => setEditForm({ ...editForm, customerEmail: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1">
               Notas
             </label>
             <textarea
               value={editForm.notes}
               onChange={(e) => setEditForm({ ...editForm, notes: e.target.value })}
-              rows={2}
+              onInput={(e) => {
+                const target = e.currentTarget;
+                target.style.height = 'auto';
+                target.style.height = `${target.scrollHeight}px`;
+              }}
+              placeholder="Escribir nota..."
+              rows={1}
               className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none"
             />
           </div>
@@ -716,7 +716,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
             })()}
           </div>
           
-          <div className="flex space-x-2">
+          <div className="flex justify-end space-x-2">
             <button
               onClick={() => handleEditSave(appointment.id)}
               className="flex items-center space-x-1 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200"
@@ -814,14 +814,14 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
                 <div className="flex space-x-2">
                   <button
                     onClick={() => handleEditStart(appointment)}
-                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 text-amber-400 hover:bg-amber-500/20 border border-amber-500/30 rounded-lg transition-colors duration-200"
+                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 bg-gray-800 text-gray-300 border border-gray-700 rounded-lg transition-all duration-200 hover:text-amber-300 hover:border-amber-500/60 hover:bg-amber-500/10 hover:shadow-sm hover:shadow-amber-500/20"
                   >
                     <Edit className="h-4 w-4" />
                     <span className="text-sm">Editar</span>
                   </button>
                   <button
                     onClick={() => handleDelete(appointment)}
-                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 text-red-400 hover:bg-red-500/20 border border-red-500/30 rounded-lg transition-colors duration-200"
+                    className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 bg-gray-800 text-gray-300 border border-gray-700 rounded-lg transition-all duration-200 hover:text-red-300 hover:border-red-500/60 hover:bg-red-500/10 hover:shadow-sm hover:shadow-red-500/20"
                   >
                     <Trash2 className="h-4 w-4" />
                     <span className="text-sm">Eliminar</span>
