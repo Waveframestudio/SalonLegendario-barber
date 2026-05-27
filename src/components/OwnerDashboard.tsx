@@ -482,6 +482,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
       const appointmentPhoneBanned = isPhoneBanned(appointment.customerPhone);
       const appointmentEmailBanned = appointment.customerEmail ? isEmailBanned(appointment.customerEmail) : false;
       const isBanned = appointmentIPBanned || appointmentPhoneBanned || appointmentEmailBanned;
+      const isEditing = editingId === appointment.id;
       const borderClass = theme === 'orange'
         ? 'border-l-orange-500'
         : (isPast ? 'border-l-amber-600' : 'border-l-amber-500');
@@ -574,8 +575,11 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         </div>
       </div>
 
-      {editingId === appointment.id ? (
-        <div className="space-y-4">
+      <div
+        className={`space-y-4 overflow-hidden transition-all duration-300 ease-out ${
+          isEditing ? 'max-h-[1200px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-1 pointer-events-none'
+        }`}
+      >
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1">
               Nombre
@@ -733,14 +737,17 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
             </button>
           </div>
         </div>
-      ) : (
-        <div className="space-y-3">
+      <div
+        className={`space-y-3 overflow-hidden transition-all duration-300 ease-out ${
+          isEditing ? 'max-h-0 opacity-0 translate-y-1 pointer-events-none' : 'max-h-[1200px] opacity-100 translate-y-0'
+        }`}
+      >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <span className="text-2xl">{appointment.service.icon}</span>
               <div>
                 <p className="font-semibold text-white">{appointment.service.name}</p>
-                <p className="text-sm text-gray-400">${appointment.service.price.toLocaleString()}</p>
+                <p className="text-sm text-gray-400">${appointment.service.price.toLocaleString('es-AR')}</p>
               </div>
             </div>
           </div>
@@ -790,7 +797,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           )}
           
           {/* Status and Action Controls */}
-          <div className="pt-3 border-t border-gray-700">
+          <div className="pt-3 border-t border-gray-700 transition-all duration-300 ease-out">
             <div className="flex flex-col space-y-3">
               <div className="flex items-center justify-between">
                 {SHOW_STATUS && (
@@ -840,7 +847,6 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
             </span>
           </div>
         </div>
-      )}
     </div>
       );
     })()
@@ -924,6 +930,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         </div>
 
         <div className="min-h-[50vh]">
+          <div key={activeTab} className="animate-fade-in-up">
           {activeTab === 'analytics' ? (
             <Analytics appointments={appointments} />
           ) : activeTab === 'bans' ? (
@@ -1155,6 +1162,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         ) : (
           <SettingsSection appointments={appointments} onNewAppointment={onNewAppointment} addNotification={addNotification} />
         )}
+          </div>
 
         {/* Modal de Confirmación de Baneo */}
         <ConfirmBanModal
@@ -1267,7 +1275,7 @@ const TrashSection: React.FC<TrashSectionProps> = ({
                     <span className="text-2xl">{appointment.service.icon}</span>
                     <div>
                       <p className="font-semibold text-white">{appointment.service.name}</p>
-                      <p className="text-sm text-gray-400">${appointment.service.price.toLocaleString()}</p>
+                      <p className="text-sm text-gray-400">${appointment.service.price.toLocaleString('es-AR')}</p>
                     </div>
                   </div>
 
