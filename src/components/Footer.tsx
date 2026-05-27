@@ -17,8 +17,8 @@ const InstagramIcon = () => (
 
 export const Footer: React.FC = () => (
   <footer className="mt-auto max-w-4xl mx-auto w-full px-3 sm:px-4 pt-4 pb-6">
-    <div className="flex items-center justify-between gap-4">
-      <p className="text-sm text-gray-500 text-left">
+    <div className="flex items-center justify-center gap-3">
+      <p className="text-sm text-gray-500 text-center">
         © 2026 Salón Legendario todos los derechos reservados. | Desarrollado por{' '}
         <a
           href="https://waveframe.com.ar/"

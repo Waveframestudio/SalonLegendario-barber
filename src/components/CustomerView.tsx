@@ -26,6 +26,15 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
   const { ranges } = useSupabaseCustomTimeRanges();
   const { availability } = useDayAvailability();
   const [showNoSlotsModal, setShowNoSlotsModal] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(true);
+
+  const transitionTo = (action: () => void) => {
+    setIsContentVisible(false);
+    setTimeout(() => {
+      action();
+      setIsContentVisible(true);
+    }, 280);
+  };
 
   const availableDays = getAvailableDays(ranges as CustomTimeRanges, availability);
   const currentDay = availableDays.find(day => day.day === selectedDay)!;
@@ -54,14 +63,14 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
 
   return (
     <div className={`pb-safe w-full flex-1 flex flex-col ${isBookingStep ? 'justify-start pt-4 sm:pt-6' : ''}`}>
-      <div className={`max-w-4xl mx-auto w-full px-3 sm:px-4 ${isBookingStep ? 'py-2 sm:py-3' : 'py-4 sm:py-6'}`}>
+      <div className={`max-w-4xl mx-auto w-full px-3 sm:px-4 transition-all duration-300 ease-in-out ${isBookingStep ? 'py-2 sm:py-3' : 'py-4 sm:py-6'} ${isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
         {/* Hero */}
         <div className={`text-center ${isBookingStep ? 'mb-4 sm:mb-5' : 'mb-6 sm:mb-10'}`}>
           <div className="relative flex items-center justify-center mb-2 min-h-[2.25rem] sm:min-h-[2.75rem]">
             {selectedTime && selectedService && !showBookingForm && (
               <BackButton
                 inline
-                onClick={() => setSelectedTime(null)}
+                onClick={() => transitionTo(() => setSelectedTime(null))}
                 label="Cambiar horario"
                 className="absolute -left-1 sm:-left-2"
               />
@@ -69,7 +78,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
             {selectedService && !selectedTime && (
               <BackButton
                 inline
-                onClick={() => { onServiceSelect(null); setSelectedTime(null); }}
+                onClick={() => transitionTo(() => { onServiceSelect(null); setSelectedTime(null); })}
                 label="Volver"
                 className="absolute -left-1 sm:-left-2"
               />
@@ -86,7 +95,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
             <div className="bg-gray-900 border border-gray-700 rounded-3xl p-4 sm:p-6 shadow-xl max-w-4xl mx-auto animate-slide-up transition-all duration-300 hover:border-amber-500/60 hover:shadow-amber-500/10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
                 {[
-                  { icon: MapPin, color: 'amber', label: 'Ubicación', sub: 'Arturo Jauretche 1061 - Hurlingham' },
+                  { icon: MapPin, color: 'red', label: 'Ubicación', sub: 'Arturo Jauretche 1061 - Hurlingham' },
                   { icon: Star, color: 'yellow', label: 'Calidad', sub: '5 estrellas' },
                   { icon: Award, color: 'amber', label: 'Experiencia', sub: '+7 años' },
                   { icon: Shield, color: 'green', label: 'Higiene', sub: 'Sanidad' },
@@ -115,7 +124,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
             <div className="bg-gray-900 border border-gray-700 rounded-3xl p-4 sm:p-6 shadow-xl transition-all duration-300 hover:border-amber-500/60 hover:shadow-amber-500/10">
               <ServiceSelector
                 selectedService={selectedService}
-                onServiceSelect={(service) => { onServiceSelect(service); setSelectedTime(null); }}
+                onServiceSelect={(service) => transitionTo(() => { onServiceSelect(service); setSelectedTime(null); })}
               />
             </div>
           </div>
@@ -186,7 +195,7 @@ export const CustomerView: React.FC<CustomerViewProps> = ({
                   className="w-full sm:w-auto px-6 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-500 text-black font-bold text-base sm:text-lg rounded-2xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 active:scale-95 sm:hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 mx-auto"
                 >
                   <span>Reservar {selectedService.name} - {selectedTime}</span>
-                  <span className="bg-black/20 px-2 py-1 rounded-lg text-xs sm:text-sm">${selectedService.price.toLocaleString()}</span>
+                  <span className="bg-black/20 px-2 py-1 rounded-lg text-xs sm:text-sm">${selectedService.price.toLocaleString('es-AR')}</span>
                 </button>
               </div>
             )}

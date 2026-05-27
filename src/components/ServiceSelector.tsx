@@ -54,7 +54,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
             
             <div className="flex items-center justify-between">
               <span className="text-lg sm:text-2xl font-bold">
-                ${service.price.toLocaleString()}
+                ${service.price.toLocaleString('es-AR')}
               </span>
               <div className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
                 selectedService?.id === service.id

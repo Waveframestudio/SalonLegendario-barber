@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, User } from 'lucide-react';
+import { User } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 interface HeaderProps {
@@ -66,19 +66,6 @@ export const Header: React.FC<HeaderProps> = ({ view, onViewChange }) => {
 
           {/* Botones */}
           <div className="flex items-center space-x-2">
-            {view === 'customer' && (
-              <button
-                onClick={() => onViewChange('customer')}
-                className={`flex items-center justify-center space-x-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  view === 'customer'
-                    ? 'bg-gradient-to-r from-amber-600 to-yellow-500 text-black shadow-lg shadow-amber-500/30'
-                    : 'bg-gray-900/80 backdrop-blur-sm text-gray-300 hover:bg-gray-800 hover:text-white border border-gray-700 hover:border-amber-500/40'
-                }`}
-              >
-                <Calendar className="h-3.5 w-3.5" />
-                <span>Reservar</span>
-              </button>
-            )}
 
             {showAdminButton && (
               <div className="group relative">
